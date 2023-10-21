@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width={}, initial-scale=1.0">
+  <title>修改表单属性</title>
+</head>
+<body>
+  <input type="checkbox" name="" id="">
+  <input type="text" value="帅" >
+  <button disabled="">点击</button>
+
+  <script>
+
+    /* --------------------------------------------------- */
+    // 1. 获取元素
+    const uname2  = document.querySelector('body input:nth-child(2)')
+
+    // 2. 获取表单里面的值 通过value 来获取
+    console.log(uname2.value)
+    // console.log(uname.innerHTML)
+    // 注意：不能通过innerHTML 来获取表单的值
+
+    // 3. 对表单内的值进行修改
+    uname2.value = '我要进大厂'
+
+    // 让表单内的值隐藏
+    // uname.type = 'password'
+    /* --------------------------------------------------- */
+
+    // 1. 获取元素
+    const uname1 = document.querySelector('body input:nth-child(1)')
+    // console.log(uname1.checked) //false
+    uname1.checked = true 
+    // uname1.checked = 'true'  // 会选中 ，但不提倡 存在隐式转换成true
+
+    /* --------------------------------------------------- */
+    // 1. 获取元素
+    const uname3 = document.querySelector('button')
+    console.log(uname3.disabled) //true disabled的意思是禁用吗 值为true则禁用
+    uname3.disabled =false // false 为不禁用 可以点击
+  </script>
+</body>
+</html>

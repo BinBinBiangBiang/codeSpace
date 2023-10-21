@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>animation复合属性</title>
+
+    <style>
+        .box{
+            width: 200px;
+            height: 100px;
+            background-color:pink;
+
+            /* animation: 动画名称 动画时长 速度曲线(linear-匀速运动) 延迟时间 重复次数 动画方向 执行完毕时状态; */
+            animation:change 2s linear 4s;
+
+            /* 速度曲线： step将动画均分为多少步  也称分布动画 */
+            animation:change 2s steps(3) 1s;
+
+            /* 无限循环动画 */
+            animation: change 1s infinite ;
+
+            /* 动画方向 alternate 反复执行动画 还会回来(但必须前面写infinite无限循环)  */
+            animation: change 2s linear infinite alternate ;
+
+            /* 执行完毕时的状态   backwards(默认值，停留在初始状态)  forwards(停留在结束时的状态) */
+            animation: change 2s linear forwards;
+        }
+
+        @keyframes change{
+            from{
+                width: 200px;
+            }
+            to{
+                width: 600px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+
+    </div>
+</body>
+</html>

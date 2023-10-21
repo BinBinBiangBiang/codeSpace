@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>对象的遍历</title>
+</head>
+<body>
+  <script>
+
+    // 输出对象属性有两种方法
+    // 方法一：
+    // 直接使用对象名加.后缀 例如：console.log(phone.name)
+    // 方法二：
+    // 使用对象名加[],中括号中填对象名，带上字符号' ' 例如：console.log(phone['name'])
+    let phone = {
+      name : 'OnePlus9R',
+      price : 3000,
+      address : '江西省宜春市',
+      time : '2年'
+    }
+
+    for(let k in phone){
+      console.log(k) // 输出对象名
+      console.log(phone[k]) //输出对象的属性
+    }
+  </script>
+</body>
+</html>

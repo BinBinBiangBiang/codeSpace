@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>走马灯展示</title>
+
+    <style>
+        *{
+            margin: 0;
+            border: 0;
+            box-sizing:content-box;
+        }
+
+        .box{
+            width: 500px;
+            height: 150px;
+            margin: 100px auto;
+            border: 10px solid #000;
+            overflow: hidden;   
+        }
+
+        li{
+            list-style: none; 
+        }
+
+        .box ul{ 
+            width: 2000px;
+            animation: back 0s forwards
+            ,move 8s linear forwards infinite ;
+        }
+
+        .box img{
+            width: 250px;
+            height: 150px;
+        }
+
+        .box li{
+            float: left;
+        }
+
+
+        /* 用户鼠标移入box动画暂停 */
+        .box:hover ul{
+            animation-play-state:paused;
+        }
+
+        @keyframes back{
+            to{
+                transform: translateX(-40px);
+            }
+        }
+
+        @keyframes move{
+            from{
+                transform: translateX(-40px);
+            }
+            to{
+                transform: translateX(-1540px);
+            }
+        }
+
+        @keyframes repeat{
+            from{
+                transform: translateX(-540px);
+            }
+            to{
+                transform: translateX(-1540px);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li><img src="./Camera Roll/QQ图片20211205160625.jpg" alt="" /></li>
+            <li><img src="./Camera Roll/QQ图片20211205160618.jpg" alt="" /></li>
+            <li><img src="./Camera Roll/QQ图片20211205160629.jpg" alt="" /></li>
+            <li><img src="./Camera Roll/QQ图片20211205160612.jpg" alt="" /></li>
+            <li><img src="./Camera Roll/QQ图片20211205160555.jpg" alt="" /></li>
+            <li><img src="./Camera Roll/QQ图片20211205160639.jpg" alt="" /></li>
+            <!-- 复制前两张图片 方便进行循环播放 -->
+            <li><img src="./Camera Roll/QQ图片20211205160625.jpg" alt="" /></li>
+            <li><img src="./Camera Roll/QQ图片20211205160618.jpg" alt="" /></li>
+        </ul>
+    </div>
+</body>
+</html>

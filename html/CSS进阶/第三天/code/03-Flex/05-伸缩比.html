@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>伸缩比</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box{
+            display: flex;
+            height: 300px;
+            margin: 0 auto;
+            border: 1px solid #000;
+        }
+
+        .box div{
+            height: 200px;
+            margin: 0 20px;
+            background-color: pink;
+        }
+
+        .box div:nth-child(2){
+            /* align-self: center; */
+            width: 30px;
+        }
+
+        .box div:nth-child(3){
+            flex:1;   
+            /* 子级加flex属性 后面取值为占用父集剩余尺寸的多少份   （比如这里div占用4份中的1份 而下面第一个div占用4份中的3份）
+            特别注意：该属性会随着逻辑分辨率的变化而使效果变化 也就是说适用于各种分辨率 */
+        }
+
+        .box div:nth-child(1){
+            flex:3;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

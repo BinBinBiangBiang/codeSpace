@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>位移的基本使用</title>
+
+    <style>
+        .father{
+            width: 500px;
+            height: 300px;
+            margin: 100px auto;
+            border: 1px solid #000;
+        }
+
+        .son{
+            width: 150px;
+            height: 70px;
+            background-color:  pink;
+            transition: all 0.5s;
+        }
+
+        /* 鼠标移动到父盒子 ，子盒子改变位置 */
+        .father:hover .son{
+            /* translate(水平移动距离,垂直移动距离) 正数向右或下，负数向上或左 */
+            transform: translate(100px, 100px);
+
+            transform: translate(-100px, -100px);
+
+            /* 只水平方向移动 */
+            transform: translateX(100px);
+
+            /* 只垂直方向移动 */
+            transform: translateY(-100px);
+
+            /* 百分比为子盒子的长度宽度 */
+            transform: translate(50%,100%);
+
+            /* 由于CSS属性有层叠性，所以以上五个效果上只会执行最后一个 */
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son">
+            
+        </div>
+    </div>
+</body>
+</html>

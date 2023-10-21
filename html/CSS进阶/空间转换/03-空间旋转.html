@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>空间旋转</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box{
+            width: 1300px;
+            height: 240px;
+            margin: 100px auto;
+            /* background-image: url("邹宝/邹3.jpg"); */
+            perspective: 1000px;
+        }
+
+
+        img{
+            width: 400px;
+            height: 240px;
+            transition: all 10s;
+        }
+
+        .box li{
+            float: left;
+            margin-right: 10px;
+            height: 380px;
+            height: 230px;
+            list-style: none;
+            overflow: hidden;
+        }
+
+        .box p{
+            font-size: 15px;
+            font-style: italic;
+            text-align: center;
+        }
+
+        .pic1{
+            width: 400px;
+            height: 240px;
+            transition: all 2s;
+        }
+
+        .pic2{
+            width: 400px;
+            height: 240px;
+            transition: all 2s;
+        }
+
+        .pic3{
+            width: 400px;
+            height: 240px;
+            transition: all 2s;
+        }
+
+        .box .pic1:hover{
+            transform: rotateX(360deg);
+        }
+
+        .box .pic2:hover{
+            transform: rotateZ(360deg);
+        }
+
+        .box .pic3:hover{
+            transform: rotateY(360deg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <ul>
+            <li>
+                <p>按X轴旋转</p>
+                <div class="pic1">
+                    <img src="./邹宝/邹3.jpg " alt="">
+                </div>
+            </li>
+            <li>
+                <p>按Z轴旋转</p>
+                <div class="pic2">
+                    <img src="./邹宝/邹4.jpg " alt="">
+                </div>
+            </li>
+            <li>
+                <p>按Y轴旋转</p>
+                <div class="pic3">
+                    <img src="./邹宝/邹5.jpg " alt="">
+                </div>
+            </li>
+        </ul>
+    </div>
+</body>
+</html>

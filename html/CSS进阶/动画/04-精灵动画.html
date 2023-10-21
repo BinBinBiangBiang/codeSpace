@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>精灵动画</title>
+
+    <style>
+        .box0{
+            width: 54px;
+            height: 72px;
+            margin: 10px auto;
+            background-image: url("images/1.png");
+            /* border: 1px solid #000; */
+
+            animation: move 0.4s steps(5) infinite forwards,
+            move2 2s  infinite forwards;
+        }
+
+        .box{
+            width: 54px;
+            height: 72px;
+            margin: 10px auto;
+            background-image: url("images/1.png");
+            /* border: 1px solid #000; */
+
+            animation: move 0.4s steps(5) infinite forwards;
+        }
+
+        .box:hover{
+            transform: translateX(600px);
+            transition: all 2s;
+        }
+
+        .box1{
+            width: 115px;
+            height: 115px;
+            margin: 10px auto;
+
+            background-image: url("images/3.png");
+            /* border: 1px solid #000; */
+
+            animation: move1 1s steps(12) infinite forwards;
+        }
+
+        .box1:hover{
+            transform: translateX(600px);
+            transition: all 2s;
+        }
+
+        .box2{
+            width: 115px;
+            height: 115px;
+            margin: 10px auto;
+
+            background-image: url("images/3.png");
+            /* border: 1px solid #000; */
+
+            animation: move1 1s steps(12) infinite forwards
+            ,move2 2s infinite forwards;
+        }
+
+
+        li{
+            list-style: none;
+        }
+
+        @keyframes move{
+            from{
+                background-position: 7px 0;
+            }
+            to{
+                background-position: -270px 0;
+            }
+        }
+
+        /* @keyframes move{
+            0%{
+                background-position: 0 0;
+            }
+            20%{
+                background-position: -55px 0;
+            }
+            40%{
+                background-position: -110px 0;
+            }
+            60%{
+                background-position: -165px 0;
+            }
+            80%{
+                background-position: -225px 0;
+            }
+            100%{
+                background-position: -277px 0;
+            }
+        } */
+
+        @keyframes move1{
+            from{
+                background-position: 5px 0;
+            }
+            to{
+                background-position: -1170px 0;
+            }
+        }
+
+        @keyframes move2{
+            from{
+                transform: translateX(0);
+            }
+            to{
+                transform: translateX(600px);
+            }
+        }
+    
+    </style>
+</head>
+<body>
+       <ul>
+        <li>
+            <div class="box0"></div>
+        </li>
+        <li>
+            <div class="box"></div>
+        </li>
+        <li>
+            <div class="box1"></div>   
+        </li>
+        <li>
+            <div class="box2"></div>
+        </li>
+       </ul>
+</body>
+</html>

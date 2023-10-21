@@ -1,0 +1,179 @@
+@import 'base';
+
+@vw:3.75vw;
+@color:#fb7299;
+
+// 头部 固定
+.header{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+    // width: 100vw;
+
+    height: (84 / @vw);
+    background-color: #fff;
+
+    .top{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;    
+        height: (44 / @vw);
+        padding-left: (18 / @vw);
+        padding-right: (12 / @vw);
+        // background-color: green;
+
+        .left{
+            .iconfont{
+                font-size: (28 / @vw);
+                color: @color;
+            }
+        }
+
+        .right{
+            display: flex;
+            .iconfont{
+                font-size: (24 / @vw);
+                color: #ccc;
+            }
+            
+            .login{
+                width: (24 / @vw);
+                height: (24 / @vw);
+                margin-left: (24 / @vw);
+            }
+
+            .download{
+                width: (72 / @vw);
+                height: (24 / @vw);
+                margin-left: (24 / @vw);
+            }
+        }
+    }
+
+    .bottom{
+        height:(40 / @vw);
+        border-bottom: 1px solid #eee;
+        display: flex;
+        justify-content: space-between;
+
+        .more{
+            a{
+               height: (40 / @vw);
+               width: (40 / @vw);
+               display: block;
+               text-align: center;
+               line-height: (40 / @vw);
+               color: #ccc;
+               .iconfont{
+                    font-size: (22 / @vw);
+               }
+            }
+        }
+
+        .tab{
+            ul{
+                display: flex;
+
+                // 方法一：
+                // 如果要用ul设置 justify-content 属性设置
+                // 或者使用align-item 属性设置就必须给ul设置高度和长度
+                // 否则不会生效 而且当内容多时 ，高度被限制了，无法撑开ul
+                // width: (300 / @vw);
+                // height: (40 / @vw);
+                // justify-content: space-around;
+                // text-align: center;
+                // line-height: (40 / @vw);
+
+
+                // 方法二：
+                // 给li设置外边距或内边距都可以
+                li{
+                    // padding: 0 (16 / @vw) 0 (16 / @vw);
+                    margin-left: (16 / @vw);
+                    margin-right: (16 / @vw);
+                    text-align: center;
+                    a{
+                        display: block;
+                        height: (38 / @vw);
+                        line-height: (38 / @vw);
+                        font-size: (14 / @vw);
+                        &.current{
+                            color: @color;
+                            border-bottom: 2px solid #ccc;
+                        }
+                    }
+                }
+            }
+            
+        }
+    }
+}
+
+
+// 视频区域
+.video_content{
+    padding: (84 / @vw) (5 / @vw) 0;
+    .video_list{
+        display: flex;
+        a{
+            width: 50%;
+            padding: (8 / @vw) (5 / @vw) ;
+            font-size: (12 / @vw);
+            .txt{
+                margin-top: (5 / @vw);
+            }
+            .pic{
+                position: relative;
+                .count{
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                    width: 100%;
+                    display: flex;
+                    color: #fff;
+                    justify-content: space-between;
+                    padding: (8 / @vw);
+                    // background-image: linear-gradient(to top,rgba(0,0,1,1)
+                    //     rgba(0,0,0,0)
+                    // );
+                    background-image: linear-gradient(
+                    transparent,
+                    rgba(0,0,0,.6)
+            );
+                    i{
+                        vertical-align: middle;
+                    }
+                }
+            }
+
+        }
+    }
+}
+
+// 底部区域
+.bottomer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin-top: (10/ @vw);
+    background-color: #fff;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    
+    a{
+        font-size: (13 / @vw) !important;
+        text-align: center;
+
+        .iconfont {
+            font-size: (26 / @vw) !important;
+        }
+
+        &.current{
+            color: #ccc;
+        }
+    }
+}

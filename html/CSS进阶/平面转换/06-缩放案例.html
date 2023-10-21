@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>缩放案例</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;    
+        }
+
+        li{
+            list-style: none;
+        }
+
+        img{
+            width: 100%;
+        }
+
+        .box{
+            width: 400px;
+            height: 300px;
+            margin: 50px auto;
+            /* 超出父集的隐藏 */
+            overflow: hidden; 
+        }
+
+        .box p{
+            color:black;
+            padding: 0px 0px ;
+            text-align: center;
+        }
+
+        .box .pic{
+            position: relative;
+        }
+
+        /* 1.播放按钮盒子压在img标签上面（定位）
+           2.hover的时候缩放效果 
+             默认看不见，还是一个特别大的，hover之后看的见变小       
+        */
+
+        .box .pic::after{
+            right: 50%;
+            bottom: 50%;
+            position: absolute;
+            margin-right: -100px;
+            margin-bottom: -100px;
+
+            content: '';
+            width: 200px;
+            height: 200px;
+            background-image: url("./图片素材/play.png");
+
+            transform: scale(2.5);
+            opacity: 0;
+
+            transition: all 0.5s;
+        }
+
+
+        /* 鼠标移入谁，让谁(after伪元素)有变化？ */
+        .box li:hover .pic::after {
+            opacity: 1;
+            transform: scale(0.4);
+        }
+
+    </style>
+</head>
+<body>
+    <div class="box">
+        <Ul>
+            <li>
+                <div class="pic">
+                    <img src="./邹宝/邹3.jpg" alt=" ">
+                </div>
+                <!-- 伪元素添加按钮 -->
+
+                <p>2021级高中毕业典礼回忆录.....</p>
+            </li>
+        </Ul>
+    </div>
+</body>
+</html>

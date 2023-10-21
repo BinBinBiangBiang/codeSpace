@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>主轴对齐方式</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+
+        }
+
+        .box{
+            display: flex;
+            /* 主轴对齐方式 : justify-content*/
+            /* 视觉效果 子级一行排列/水平排列 */
+            /* 水平排列：默认主轴在水平 ，弹性盒子都是沿着主轴排列 */
+
+            /* justify-content属性 （主要介绍四个常用的）*/
+
+            justify-content: center;
+            /* 居中 */
+
+            justify-content: space-between;
+            /* 间距在两个弹性盒子之间 */
+
+            justify-content: space-evenly;
+            /* 所有地方的间距都相等 */
+
+            justify-content:space-around ;
+            /* 间距加载子级的两侧 */
+            /* 视觉效果：子级之间的距离是父集两头距离的2倍 */
+
+            height: 200px;
+            border: 1px solid #000;
+        }
+
+        .box div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+</html>

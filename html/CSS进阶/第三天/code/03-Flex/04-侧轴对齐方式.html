@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>侧轴对齐方式</title>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box{
+            display: flex;
+            
+            /* 侧轴对齐方式： align-items */
+
+            align-items: center;
+            /* 侧轴居中 */
+
+            align-items: stretch;
+            /* 默认值（测试条件：要将子级的高度注释掉，否则就会显示子级设置的高度） */
+
+            height: 300px;
+            margin: auto;
+            border: 1px solid #000;
+        }
+
+        .box div{
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+
+        .box div:nth-child(2){
+            align-self: center;
+            /* align-self 单独控制子级盒子的侧轴属性  属性值和align-items 相同 */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+    </div>
+</body>
+</html>

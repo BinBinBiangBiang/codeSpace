@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>简易ATM取款机</title>
+</head>
+
+<body>
+  <script>
+
+    let money = 1000
+    while (true) {
+      let menu = +prompt(`
+      请您选择操作
+      1. 存钱
+      2. 取钱
+      3. 查看余额
+      4. 退出
+      `)
+
+      if (menu == 4) {
+        break
+      }
+
+
+
+      switch (menu) {
+        case 1: {
+          let cun = +prompt(`请输入你要存入的余额数`)
+          money = money + cun
+          break
+        }
+        case 2: {
+          let qu = +prompt(`请输入你的取款数额`)
+          if (qu > money) {
+            alert(`您的银行卡余额不足`)
+          }
+          else {
+            money = money - qu
+            break
+          }
+        }
+        case 3: {
+          alert(`您的余额：${money}`)
+          break
+        }
+        case 4: {
+          break
+        }
+      }
+
+      if (money <= 0) {
+        alert(`您的余额不足，请先进行存款`)
+        break
+      }
+
+    }
+  </script>
+</body>
+
+</html>

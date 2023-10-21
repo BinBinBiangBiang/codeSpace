@@ -1,0 +1,151 @@
+@import './base.less';
+@import './normalize.less';
+
+body {
+    background-color: #F0F0F0;
+}
+
+@rootSize:37.5rem;
+
+.xxx{
+    margin-top: (10 / @rootSize);
+}
+
+// 主体内容
+.main{
+    // padding-bottom: 50./37.5rem;
+    padding-bottom: 50./@rootSize;
+
+// banner
+
+
+
+    .title{
+        height: 40./@rootSize;
+        line-height: 40./@rootSize;
+        padding-left: 15./@rootSize;
+        h4{
+            font-size: 15./@rootSize;
+            color: #3C3C3C;
+        }
+    }
+
+    .item{
+        margin-bottom: (10 / @rootSize);
+
+        
+
+        // 图
+        .pic{
+            height: 160./@rootSize;
+            position: relative;
+
+            .iconfont{
+                position: absolute;
+                top: (15 / @rootSize);
+                right: (18 / @rootSize);
+                font-size: (24 / @rootSize);
+                color: #fff;
+            }
+
+            .active{
+                width: (68 / @rootSize);
+                height: (29 / @rootSize);
+                background-image: url(./../images/status_active.png);
+                top: (-4 / @rootSize);
+                left: (15 / @rootSize);
+                position:absolute;
+                background-size: contain;
+                font-size: (12 / @rootSize);
+                text-align: center;
+                line-height: (25/ @rootSize);
+                color: #fff;
+
+
+                // 灰色图片样式
+                // .active.off {} 必须是active类并应用了off类 
+                // div.off{} 交集选择器
+                &.off{
+                    background-image: url(../images/status_default.png);
+                }
+            }
+
+            // .off{
+
+            // }
+        }
+
+        // 文字
+        .txt{
+            padding: (10 / @rootSize) (15 / @rootSize);
+            background-color: #fff;
+            .top{
+                display: flex;
+                justify-content: space-between;
+                h5{
+                    font-family: FZLTHJW--GB1-0;
+                    width: (290 / @rootSize);
+                    font-size: (15 / @rootSize);
+                    color: #3C3C3C;
+                }
+
+                p{
+                    font-family: STHeitiSC-Light;
+                    font-size: (15px / @rootSize);
+                    color: #FE6249;
+                    margin-top: (5 / @rootSize);
+                }
+            }
+
+            .bottom{
+                display: flex;
+                margin-top: (10 / @rootSize);
+                p{
+                    font-size: (11 / @rootSize);
+                    color: #B4B4B4;
+                    margin-right: (15 / @rootSize);
+                    i{
+                    font-size: (11 / @rootSize);
+                    }
+                }
+
+                & p:nth-child(1){
+                    margin-bottom: (11 / @rootSize);
+                }
+
+                & p:nth-child(2){
+                    margin-bottom: (10 / @rootSize);
+                }
+            }
+        }
+    }
+}
+
+// 底部工具栏
+footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    // height: 50./37.5rem;
+    height: 50./@rootSize;
+    background-color: #FECA49;
+    display: flex;
+    justify-content: space-around;
+
+    a{
+        font-size: (12 / @rootSize);
+        color:  #D78B09;
+        text-align: center;
+
+        .iconfont{
+            font-size: (26 / @rootSize);
+        }
+
+        &.current{
+            color: #fff;
+        }
+    }
+
+
+}

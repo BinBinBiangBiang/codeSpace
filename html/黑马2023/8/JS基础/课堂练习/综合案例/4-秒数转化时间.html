@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>秒数转换时间</title>
+</head>
+<body>
+  <script>
+    let m 
+    function time(m){
+      let h = parseInt(m / 60 / 60 % 24)
+      let f = parseInt(m / 60 % 60)
+      let s = parseInt(m % 60)
+
+      h = h < 10 ? '0' + h : h 
+      f = f < 10 ? '0' + f : f
+      s = s < 10 ? '0' + s : s
+      document.write(`该秒数对应的时间是：${h}时:${f}分:${s}秒 `)
+    }
+
+    let a = +prompt(`请输入秒数：`)
+    time(a)
+  </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>转换原点旋转</title>
+
+    <style>
+        img{
+            width: 250px;
+            margin: auto;
+            transition: all 2s;
+            /* transfrom-origin: 原点水平位置  原点垂直位置  */
+            /* 方位名词： left right bottom top center */
+            transform-origin: right bottom;
+        }
+
+        img:hover{
+            transform: rotate(360deg);
+        }
+    </style>
+</head>
+<body>
+    <img src="./邹宝/邹1.jpg" alt="">
+</body>
+</html>

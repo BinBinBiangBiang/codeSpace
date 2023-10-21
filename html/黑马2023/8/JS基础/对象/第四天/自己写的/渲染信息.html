@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>渲染信息案例</title>
+
+  <style>
+    table {
+      width: 600px;
+      text-align: center;
+    }
+
+    table,
+    th,
+    td {
+      border: 1px solid #ccc;
+      /* border-collapse: collapse; */
+      /* 用于控制表格单元格之间的边框是否合并。
+            当应用于表格元素时，它会使相邻单元格的边框合并为一个单一的边框，
+            从而创建出更紧凑的表格样式 */
+    }
+
+    caption {
+      font-size: 18px;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+
+    tr {
+      height: 40px;
+      cursor: pointer;
+      /* 用于指定当鼠标悬停在元素上时，
+            鼠标指针的样式。将其应用于一个元素，通常会使鼠标指针变为手型，
+            表示该元素可被点击或交互。 */
+    }
+
+    table tr:nth-child(1) {
+      background-color: #ddd;
+    }
+
+    table tr:not(:first-child):hover {
+      background-color: #eee;
+    }
+  </style>
+</head>
+
+<body>
+  <h2>学生信息</h2>
+  <p>将数据渲染到页面中</p>
+  <table>
+    <caption>学生列表</caption>
+    <tr>
+      <th>序号</th>
+      <th>姓名</th>
+      <th>年龄</th>
+      <th>性别</th>
+      <th>家乡</th>
+    </tr>
+
+    <script>
+      let students = [
+        { name: '小明', age: 18, gender: '男', hometown: '江西省' },
+        { name: '刘子曦', age: 21, gender: '男', hometown: '北京市' },
+        { name: '姚连辉', age: 20, gender: '男', hometown: '山东省' },
+        { name: '邹雨欣', age: 20, gender: '女', hometown: '江西省' }
+      ]
+
+      for (let i = 0; i < students.length; i++) {
+        document.write(`
+                <tr>
+                  <td>${i + 1}</td>
+                  <td>${students[i].name}</td>
+                  <td>${students[i].age}</td>
+                  <td>${students[i].gender}</td>
+                  <td>${students[i].hometown}</td>
+                </tr>
+          `)
+      }
+    </script>
+  </table>
+</body>
+
+</html>

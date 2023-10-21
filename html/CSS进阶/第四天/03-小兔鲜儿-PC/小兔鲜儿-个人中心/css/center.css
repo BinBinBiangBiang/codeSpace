@@ -1,0 +1,510 @@
+/* 公共 */
+.bottom{
+    width: 100px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5eb69c;
+	border-radius: 2px;
+}
+/* 公共 */
+
+.xtx_body{
+    padding: 30px 0 70px 0;
+    background-color: #f6f6f6;
+
+}
+
+.xtx_body .wrapper{
+    display: flex;
+}
+
+
+
+/* 侧边栏 */
+
+/* 5个div */
+.xtx_body .aside{
+    width: 227px;
+    background-color: #ffffff;
+    min-height: 500px;
+}
+
+.aside_head{
+    height: 231px;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.aside_myaccount{
+    height: 455px;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.aside_trade{
+    height: 276px;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.aside_mycollect{
+    height: 200px;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.aside_help{
+    height: 190px;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.aside .aside_head img{
+    width: 85px;
+    height: 85px;
+    transform: translateX(66px);
+    margin-top: 47px;
+}
+
+.aside .aside_head div:nth-child(2) p{
+    text-align: center;
+    font-family: PingFangSC-Medium;
+	font-size: 18px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #333333;
+}
+
+.aside .aside_head div:nth-child(3) img{
+    width: 85px;
+    height: 35px;
+    transform: translateY(-50px) translateX(70px);
+}
+
+.aside_myaccount div:nth-child(1) div{
+    height: 90px;
+    padding: 35px 0px 0px 55px;
+}
+
+.aside_myaccount div:nth-child(1) div p{
+	font-family: PingFangSC-Regular;
+	font-size: 18px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #333333;
+}
+
+.aside_myaccount ul{
+    transform: translateX(55px);
+}
+
+.aside_myaccount li{
+    margin-bottom: 15px;
+    color: #666666;
+}
+
+
+.aside_trade  div:nth-child(1) div p{
+	font-family: PingFangSC-Regular;
+	font-size: 18px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #333333;
+}
+
+.aside_trade div:nth-child(1) div p{
+    height: 90px;
+    padding: 35px 0px 0px 55px;
+}
+
+.aside_trade ul{
+    transform: translateX(55px);
+}
+
+.aside_trade li{
+    margin-bottom: 15px;
+    color: #666666;
+}
+
+.aside_mycollect  div:nth-child(1) div p{
+	font-family: PingFangSC-Regular;
+	font-size: 18px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #333333;
+}
+
+.aside_mycollect div:nth-child(1) div p{
+    height: 90px;
+    padding: 35px 0px 0px 55px;
+}
+
+.aside_mycollect ul{
+    transform: translateX(55px);
+}
+
+.aside_mycollect li{
+    margin-bottom: 15px;
+    color: #666666;
+}
+
+.aside_help div:nth-child(1) div p{
+	font-family: PingFangSC-Regular;
+	font-size: 18px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #333333;
+}
+
+.aside_help div:nth-child(1) div p{
+    height: 90px;
+    padding: 35px 0px 0px 55px;
+}
+
+.aside_help ul{
+    transform: translateX(55px);
+}
+
+.aside_help li{
+    margin-bottom: 15px;
+    color: #666666;
+}
+
+
+
+
+/* 侧边栏 */
+
+
+/* 主要内容 */
+.main{
+    flex: 1;
+    width: 999px;
+    min-height: 500px;
+    margin-left: 18px;
+    background-color: #f6f6f6;
+}
+
+.main .overview{
+    display: flex;
+    height: 132px;
+    margin-bottom: 18px;
+
+    padding: 20px;
+    background-color: #fbfbfb;
+}
+
+.main .overview div:first-child{
+    border-right: 1px solid #f4f4f4;
+}
+
+.main .overview div{
+    /* margin: 20px; */
+    /* margin-top: 45px;
+    margin-bottom: 34px; */
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+
+.main .overview div:first-child a{
+    margin-right: 80px; 
+}
+
+.main .overview div:first-child img{
+    width: 25px;
+    height: 22px;
+    margin-bottom: 5px;
+}
+
+.main .overview div:first-child a:nth-child(3) img{
+    width: 18px;
+    height: 25px;
+}
+
+.main .overview div:first-child a:nth-child(1){
+    margin-left: 88px;
+}
+
+.main .overview div:first-child a:nth-child(3){
+    margin-right: 68px;
+}
+
+.main .overview div:first-child p{
+        width: 64px;
+        height: 15px;
+        font-family: PingFangSC-Regular;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        letter-spacing: 0px;
+        color: #333333;
+}
+
+.main .overview div:last-child i{
+        font-family: PingFangSC-Semibold;
+        font-size: 25px;
+        font-weight: normal;
+        font-stretch: normal;
+        letter-spacing: 0px;
+        color: #e05e30;
+
+}
+
+.main .overview div:last-child p{
+        font-family: PingFangSC-Regular;
+        font-size: 16px;
+        font-weight: normal;
+        font-stretch: normal;
+        letter-spacing: 0px;
+        color: #333333;
+}
+
+
+.main .overview div:last-child a{
+    margin-right: 101px;
+    width: 48px;
+    height: 53px;
+}
+
+
+.main .overview div:last-child a:nth-child(1){
+    margin-left: 78px;
+}
+
+.main .myorder{
+    margin-top: 18px;
+    background-color: #ffffff;
+}
+
+.pannel{
+    padding: 28px 20px;
+    background-color: #ffffff;
+    margin-bottom: 20px;
+}
+
+.myorder_header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.order_info ul li{
+    display: flex;
+}
+
+.order_info ul{
+    list-style: none;
+}
+
+.order_info ul div:first-child{
+    display: flex;
+}
+
+.order_info ul div:first-child p{
+    align-items: center;
+}
+
+.order_info ul li:nth-child(1) img{
+    width: 107px;
+    height: 107px;
+}
+
+.myorder_header{
+    height: 70px;
+}
+
+.myorder_header h4{
+    font-family: PingFangSC-Regular;
+	font-size: 22px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #333333;
+}
+
+.myorder_header  p{
+    font-family: PingFangSC-Regular;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #999999;
+    margin: 36px 27px 20px 0;
+}
+
+.myorder_header p{
+    right:0;
+    bottom:0;
+    position: absolute;
+}
+
+.myorder div:first-child{
+    margin-bottom: 21px;
+    position: relative;
+}
+
+.txt1 p:first-child{
+    margin-bottom: 4px;
+    margin-top: 49px;
+}
+
+.txt1 p:last-child{
+    font-family: PingFangSC-Regular;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    letter-spacing: 0px;
+    color: #999999;
+    margin-bottom: 47px;
+}
+
+.goods{
+    margin-right: 168px;
+}
+
+.goods .pic img{
+    margin-top: 17px;
+    margin-bottom: 14px;
+}
+
+.order_info .status{
+    margin-right: 81px;
+}
+
+
+.order_info .status p:first-child{
+    font-family: PingFangSC-Regular;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #e05e30;
+    text-align: center;
+    margin-top: 63px;
+}
+
+.order_info .status p:nth-child(2){
+    color: #999999;
+}
+
+.pay_common{
+    width: 200px;
+    height: 137px;
+    margin-right: 50px;
+    border-left: 1px solid #e8e8e8;;
+    border-right: 1px solid #e8e8e8;;
+}
+
+.pay_common .info{
+    margin: 40px 43px 41px 35px;
+}
+
+.pay_common p{
+    text-align: center;
+}
+
+
+
+.pay_common p:nth-child(1){
+    font-family: PingFangSC-Regular;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #9a2e1f;
+    margin-top: 40px;
+}
+
+.pay_common p:nth-child(2){
+    font-family: PingFangSC-Regular;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #333333;
+}
+
+.pay_common p:nth-child(3){
+    font-family: PingFangSC-Regular;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #333333;
+}
+
+.order_info li{
+    width: 1010px;
+    height: 137px;
+    border: 1px solid #f4f4f4;
+    margin-bottom: 24px;
+}
+
+.action_common a{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: PingFangSC-Regular;
+	font-size: 14px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+    transform: translateX(5px);
+}
+
+.action_common a:nth-child(1){
+	color: #ffffff;
+    margin-bottom: 16px;
+    margin-top: 30px;
+}
+
+.foot_head{
+    width: 999px;
+    height: 70px;
+    margin-bottom: 21px;
+    position: relative;
+    border-bottom: 1px solid #f4f4f4;
+}
+
+.foot_head h4{
+    font-family: PingFangSC-Regular;
+	font-size: 22px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #333333;
+}
+
+.foot_head  p{
+    font-family: PingFangSC-Regular;
+	font-size: 16px;
+	font-weight: normal;
+	font-stretch: normal;
+	letter-spacing: 0px;
+	color: #999999;
+    margin: 36px 27px 20px 0;
+}
+
+.foot_head p{
+    right:0;
+    bottom:0;
+    position: absolute;
+}
+
+/* 出现bug了  移动方法解决 */
+.main{
+    transform: translateY(-1351px) translateX(380px);
+}
+
+
+
+
+
+
+

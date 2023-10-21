@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>案例-双开门</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+
+        .box{
+            width: 1080px;
+            height: 600px;
+            margin: 0 auto;
+            margin-top :20px;
+            background:url('./邹宝/邹3.jpg');
+
+            /* 超出父集范围的隐藏 */
+            overflow: hidden;
+        }
+
+        /* 左右相同样式 */
+        /* 伪元素：行内显示模式 */
+        .box::before,
+        .box::after{
+            float: left;
+            content: '';
+            width: 50%;
+            height: 600px;
+            background-image: url(./邹宝/邹4.jpg);
+            transition: all 0.5s;
+        }
+
+        .box::after{
+            background-position: right 0;
+        }
+
+        /* 鼠标移入 before向左移动 100% */
+        .box:hover::before{
+            transform: translate(-100%);
+        }
+
+        /* 鼠标移入 after向右移动 100% */
+        .box:hover::after{
+            transform: translate(100%);
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <!-- 手写两个div；用CSS伪元素before after -->
+    </div>
+</body>
+</html>

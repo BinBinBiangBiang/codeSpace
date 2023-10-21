@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>产品展示</title>
+
+    <style>
+        .box{
+            position: relative;
+            width: 400px;
+            height: 300px;
+        }
+        
+        .box img{
+            width: 400px;
+            height: 220px;
+        }
+
+        .box .title{
+            position: absolute;
+            left: 15px;
+            bottom: 100px;
+            z-index: 2;
+            width: 260px;
+            color: rgb(233, 248, 247);
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        /*
+            1.准备盒子，定位压在图片上面
+            2.hover效果：显示渐变效果 
+         */
+
+         .box .mask{
+            position:absolute;
+            left: 0;
+            top:0;
+            width: 400px;
+            height: 220px;
+            background-image: linear-gradient(
+                transparent,
+                rgba(0, 0, 0, 0.6)
+            );
+            opacity: 0;
+            transition: all 0.5s;
+         }
+
+
+         /* 鼠标移入box mask盒子发生变化 */
+         .box:hover .mask{
+            opacity: 1;
+         }
+    </style>
+</head>
+<body>
+    
+    <div class="box">
+        <img src="./Camera Roll/QQ图片20221025192958.jpg" alt="">
+        <!-- 第一种:在这加渐变背景的盒子 -->
+        <div class="title"> CSGO 印花姬壁纸 高清无码下载</div>
+        <!-- 第二种：在这加渐变背景的盒子 -->
+        <!-- mask 表示遮罩层 -->
+        <div class="mask"></div>
+    </div>
+
+</body>
+</html>

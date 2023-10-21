@@ -1,0 +1,253 @@
+body{
+    background-color: #f7f7f8;
+}
+
+/* 公共样式 */
+.red{
+    color: #cf4444;
+}
+
+.pannel{
+    margin-bottom: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+}
+
+/* 主体内容 */
+.main{
+    /* 80px:为了内容不被底部区域盖住 */
+    padding: 12px 11px 80px;
+}
+
+/* 用户信息 */
+.user_msg{
+    padding: 15px 0 15px 11px;
+    align-items: center;
+    display: flex;
+}
+
+.user_msg .location{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+    background-image:linear-gradient(90deg,
+        #6fc2aa 5%,
+        #54b196 100% 
+    ) ;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+    color:#fff;
+}
+
+.user_msg .user{
+    flex:1;
+}
+
+.user_msg .more{
+    width: 44px;
+    height: 44px;
+    /* background-color:pink; */
+    text-align: center;
+    line-height: 44px;
+    color:#808080;
+}
+
+.user_msg .user .top{
+    display: flex;
+}
+
+.user_msg .user .top h5{
+    width: 60px;
+    font-size:15px;
+}
+
+
+.user_msg .user .bottom{
+    font-size: 14px;
+    margin-top: 5px;
+}
+/* /用户信息 */
+
+
+/* 商品区域 */
+.goods{
+    padding: 11px 0 11px 11px;
+    display: flex;
+}
+
+.goods .pic img{
+    width: 85px;
+    height: 85px;
+    margin-right: 10px;
+}
+
+.goods .count{
+    width: 44px;
+    height: 44px;
+    /* background-color: pink; */
+
+    text-align: center;
+    line-height: 44px;
+    /* 上述是针对count盒子中的文字居中 */
+
+    /* justify-content: center;
+    align-self: center; 
+    (该操作是将count盒子相对于父盒子goods 主轴居中 侧轴居中)*/
+}
+
+.goods .info{
+    flex: 1;
+}
+
+.goods .info h5{
+    font-size: 13px;
+    color:#262626;
+    font-weight: 400;
+}
+
+.goods .info p{
+    width: 95px;
+    height: 20px;
+    background-color: #f7f7f8;
+    margin: 5px 0;
+    font-size: 12px;
+    border-radius: 2px;
+    color: #888;
+}
+
+.goods .info p span:first-child{
+    margin-right: 5px;
+}
+
+.goods .info .price{
+    font-size: 12px;
+} 
+
+.goods .info .price i{
+    font-size: 16px;
+}
+
+.goods .info .price span:last-child{
+    font-family: initial;
+    margin-left: 5px;
+    color: #999;
+    text-decoration:line-through;
+}
+
+/* /商品区域 */
+
+
+/* 其他信息区域 */
+.rest div{
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.rest div:nth-child(3){
+    margin-bottom: 5px;
+}
+
+.rest div:nth-child(1){
+    justify-content: space-between;
+}
+
+
+
+.rest div:nth-child(3){
+    justify-content: space-between;
+}
+
+.rest h5{
+    font-size: 13px;
+    font-weight: 400;
+    color: #262626;
+}
+
+.rest p{
+    font-size: 13px;
+    color: #262626;
+}
+
+.rest diV:nth-child(2) p{
+    margin-left:20px;
+    font-size: 13px;
+    color: #54b196;
+}
+/* 其他信息区域 */
+
+/* 结算总结区域 */
+.consume div{
+    display: flex;
+    margin-bottom: 30px;
+    justify-content: space-between;
+}
+
+.consume div:nth-child(3){
+    margin-bottom: 5px;
+}
+
+.consume h5{
+    font-size: 16px;
+    font-weight: 400;
+    color: #262626;
+}
+
+.consume p{
+    font-size: 15px;
+    color: #262626;
+}
+
+.consume diV:nth-child(3) p{
+    margin-left:20px;
+    font-size: 13px;
+    color:red;
+}
+/* 结算总结区域 */
+
+/* 主体内容 */
+
+/* 底部支付 */
+.pay{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+
+    display: flex;
+    /* 主轴对齐方式 */
+    justify-content: space-between;
+    /* 侧轴对齐方式 */
+    align-items: center;
+
+    width: 100%;
+    height: 80px;
+
+    padding: 0 11px;
+    /* background-color: pink; */
+    border: 1px solid #fff;
+}
+
+.pay .left{
+    font-size: 12px;
+}
+
+.pay .left i{
+    font-size: 20px;
+}
+
+.pay .right a{
+    display: block;
+    width: 90px; 
+    height: 35px;
+    background-image: linear-gradient(90deg,
+        #6fc2aa 5%,
+        #54b196 100%);
+
+    border-radius: 3px;
+    /* 用于设置边框的四个角的弧度 */
+    text-align: center;
+    line-height: 35px;
+    font-size: 13px;
+    color: #fff;
+}
+/* 底部支付 */

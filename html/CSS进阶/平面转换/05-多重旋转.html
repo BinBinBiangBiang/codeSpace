@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多重旋转</title>
+    
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+            margin: 0 auto;
+            transition: all 2s;
+        }
+
+        .box{
+            width: 800px;
+            height: 200px;
+            border: 1px solid #000;
+        }
+
+        .box:hover img{
+            transform: translate(600px) rotate(720deg);
+
+            /* translate 和rotate 交换的话 由于旋转会改变坐标轴向，使位移的方向发生改变*/
+        }
+    </style>
+
+</head>
+<body>
+    <div class="box">
+        <img src="邹宝/邹1.jpg" alt="" >
+    </div>
+</body>
+</html>

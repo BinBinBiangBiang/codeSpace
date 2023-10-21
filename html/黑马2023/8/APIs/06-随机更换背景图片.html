@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>随机更换背景图片</title>
+
+  <style>
+    body{
+      background: url('./images/desktop_1.jpg') no-repeat top center/ 
+      cover;
+    }
+  </style>
+</head>
+<body>
+  <!-- body属性不需要获取，可以直接通过document.body来获取body标签 -->
+  <script>
+    function getRandom(N,M){
+      return Math.floor(Math.random()* (M - N + 1)) +N
+    }
+
+    const random = getRandom(1, 10)
+
+    document.body.style.backgroundImage = `url(./images/desktop_${random}.jpg)`
+  </script>
+</body>
+</html>

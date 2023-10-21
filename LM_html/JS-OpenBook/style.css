@@ -1,0 +1,109 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  box-sizing: border-box;
+  /* border-box 将容器声明为IE模型 */
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+  font: 100%/1.25 Helvetica, arial, sans-serif;
+  perspective: 1000px;
+  background-color: #444;
+  background-image: linear-gradient(to bottom, #444, #999);
+}
+
+.p3d {
+  transform-style: preserve-3d;
+}
+
+.book {
+  width: 300px;
+  height: 300px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  /* transform: translateY(-50%); */
+  margin-top: -150px;
+  color: #fff;
+  transform: rotateX(60deg);
+  /* -webkit-transform: rotateX(60deg);   谷歌内核，防止老版本浏览器读不懂：会提示，但能运行，这是编译器的警告 */
+  /* -moz-transform: rotateX(60deg);   火狐内核， 会提示，但能运行，这是编译器的警告 */
+  /* -o-transform: rotateX(60deg);   欧朋浏览器，会提示，但能运行，这是编译器的警告 */
+  user-select: none;
+  /* 不让用户复制*/
+}
+
+.front-cover {
+  cursor: move;
+  /*鼠标在上面悬浮式鼠标图标改变为某某形状，由属性决定 */
+  transform-origin: 0 50%;
+  /* 绕x轴为0，y轴为50%（即y轴的正中间）*/
+  transform: rotateY(0deg);
+}
+
+.page {
+  width: 300px;
+  height: 300px;
+  padding: 1em;
+  position: absolute;
+  left: 0;
+  top: 0;
+  text-indent: 2em;
+}
+
+.inside {
+  background-color: #d93e2b;
+}
+
+.outside {
+  background: #fff;
+}
+
+.front-cover .outside {
+  background-image: url(./1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translateZ(3px);
+}
+
+.flip {
+  transform: rotateY(180deg);
+}
+
+.back-cover .inside{
+  background-color: #d93e2b;
+}
+
+.back-cover .outside {
+  transform: translateZ(-3px);
+}
+
+
+.card,.shadow {
+  transform-origin: 0 100%;
+  width: 196px;
+  height: 132px;
+  position: absolute;
+  left: 60px;
+  top: 80px;
+}
+
+.shadow {
+  /* 黑色且是半透明状态 */
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.card {
+  transform-origin: 0 100%;
+  transform: rotateX(0deg);
+  background-image: url(./2.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}

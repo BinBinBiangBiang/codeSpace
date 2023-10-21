@@ -1,0 +1,86 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: 0;
+}
+
+:root{
+    --hue:233;
+    --white: hsl(var(--hue),10%,100%);
+    --lt--gray: hsl(var(--hue,10%,95%));
+    --gary1:hsl(var(--hue,10%,90%));
+    --gary2:hsl(var(--hue,10%,80%));
+    --gary7:hsl(var(--hue,10%,30%));
+    --gary9:hsl(var(--hue,10%,10%));
+    --primary:hsl(var(--hue,90%,55%));
+    --trans-dur: 0.3s;
+    font-size:calc(16px+8*(100vw-320px)/(1280-320));
+}
+
+body {
+    font:1em/1.5 'DM Sans' ,sans-serif;
+    height: 100vh;
+    display: grid;   /* display 用于修改块级元素 */
+    place-items: center;  /* 将文字居于正中间 */
+
+}
+
+.fr{
+    padding: 0 1.5em;
+    max-width: 20em; /* max-width 设置最大宽度 */
+}
+
+.fr__face{
+    --face-hue1:60;
+    --face-hue2:30;
+    width: 3em;
+    height: 3em;
+    background-image: linear-gradient(
+        135deg,
+        hsl(var(--face-hue1),90%,55%), /* 135deg 为渐变的方向 */
+        hsl(var(--face-hue2),90%,55%)
+        ); 
+        position: relative;
+        border-radius: 50%;
+        margin: 0 auto;
+        margin-top: 2em;
+}
+
+.fr__face-right-eye,
+   .fr__face-left-eye,
+     .fr__face-mouth-upper{
+    position: absolute;
+}
+
+.fr__face-right-eye,.fr__face-left-eye{
+    background-color: var(--white);
+    width: 0.6em;
+    height: 0.6em;
+    border-radius: 50%;
+    top: 0.75em;
+}
+
+.fr__face-right-eye{
+    left: 0.6em;
+}
+
+.fr__face-left-eye{
+    right: 0.6em;
+}
+
+.fr__face-mouth-upper{
+    background-color: var(--white);
+    top: 1.75em;
+    left: 0.75em;
+    width: 1.5em;
+    height: 0.75em;
+    border-radius: 0 0 50% 50% / 0 0 100% 100%;
+}
+
+.fr__input{
+    /* display: block 强制转化为块级元素 */
+    display: block;
+    margin:0 auto;
+    margin-top: 2em;
+}
