@@ -37,10 +37,6 @@ var threeSum = function(nums) {
   return ans;
 };
 
-if(i>0 && nums[i] == nums[i-1]){
-    continue;
-}
-
 let arr = threeSum(nums)
 
 console.log(arr)
