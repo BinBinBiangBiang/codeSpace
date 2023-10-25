@@ -2,13 +2,14 @@
 // 下述代码结果为undefined
 // var会造成变量提升，console.log(a); var a = 1;
 // 相当于 var a;  console.log(a); a = 1;
+var a = 1
 
-// function foo() {
-//   console.log(a)
-//   var a = 1
-// }
+function foo() {
+  console.log(a)
+  var a = 1
+}
 
-// foo()
+foo()
 
 // ----------------------------------------------------------------
 
