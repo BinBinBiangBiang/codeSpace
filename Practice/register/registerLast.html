@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    form{
+      display: flex;
+      flex-direction: column;
+      /*justify-content: center;*/
+      align-items: center;
+      /*height: 100vh;*/
+    }
+
+    fieldset{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: justify;
+      width: 400px;
+    }
+
+    .a1{
+      display: flex;
+      align-items: center;
+    }
+
+    .l1{
+      margin-right: 10px;
+    }
+  </style>
+</head>
+<body>
+<form id="registrationForm">
+  <fieldset>
+    <legend style="text-align: center">用户注册</legend>
+    <label for="username">
+      用户名：<input type="text" size="15" id="username" required="required">
+    </label>
+
+    <label for="code">
+      密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp; <input type="text" size="15" id="code" required="required">
+    </label>
+
+    <label for="codeCopy">
+      确认密码:<input type="text" size="15" id="codeCopy" required="required">
+    </label>
+
+  <label for="email">
+    邮&nbsp;&nbsp;&nbsp;&nbsp;箱: <input type="text" size="15" id="email" required="required">
+  </label>
+    <div class="a1">
+      <input type="submit" class="l1" value="注册">
+      <input type="reset" value="重置">
+    </div>
+  </fieldset>
+</form>
+
+<script>
+  document.getElementById('registrationForm').addEventListener('submit', function(event) {
+    event.preventDefault(); /* 防止事件的默认行为发生，从而让开发者能够自定义事件的行为。*/
+
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('code').value;
+    const confirmPassword = document.getElementById('codeCopy').value;
+    const email = document.getElementById('email').value;
+
+    let res = []
+
+    if (username.length > 10) {
+      // alert('用户名长度不能超过10个字符。');
+      let str1 = '用户名长度不能超过10个字符。'+'\n'
+      res.push(str1)
+    }
+
+    if (!/^[a-zA-Z]/.test(username)) {
+      // alert('用户名必须以字母开头。');
+      let str2 = '用户名必须以字母开头。'+'\n'
+      res.push(str2)
+    }
+
+    if (password !== confirmPassword) {
+      // alert('两次密码不一致。');
+      let str3 = '两次密码不一致。'+'\n'
+      res.push(str3)
+    }
+
+    if (email.indexOf('@') === -1) {
+      // alert('邮箱地址不合法，必须包含@符号。');
+      let str4 = '邮箱地址不合法，必须包含@符号。'+'\n'
+      res.push(str4)
+    }
+
+    if(res == null) {
+      alert('注册成功！');
+    }else{
+      alert(res)
+    }
+    // 注册成功后，可以跳转到注册成功页面
+    // window.location.href = 'success.html';
+    return true;
+  });
+</script>
+</html>

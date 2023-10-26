@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    
+    /*body{*/
+    /*    display: flex;*/
+    /*    flex-direction: column;*/
+    /*    justify-content: center;*/
+    /*    align-items: center;*/
+    /*}*/
+
+form{
+    display: flex;
+    flex-direction: column;
+    /*justify-content: center;*/
+    align-items: center;
+    /*height: 100vh;*/
+}
+
+fieldset{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    width: 400px;
+}
+
+.a1{
+    display: flex;
+    align-items: center;
+}
+
+.i1{
+    margin-right: 10px;
+}
+  </style>
+</head>
+<body>
+  <form onsubmit="return YzFm()">
+    <div>
+        写Javascript脚本验证用户填写的注册信息，
+        用户名长度不超过10个字符，
+        必须以字母开头；验证两次密码是否相同；
+        邮箱是否合法（包含@）。
+        要求：用alert提示具体的错误信息，
+        通过验证跳转到注册成功页面。
+    </div>
+    <fieldset>
+        <legend style="text-align: center">用户注册</legend>
+        <label> 用户名：<input type="text" size="15" id="username" required="required"></label>
+        <label> 密&nbsp;&nbsp;&nbsp;&nbsp;码:&nbsp; <input type="text" size="15" id="code" required="required"></label>
+        <label> 确认密码:<input type="text" size="15" id="copyCode" required="required"></label>
+        <label> 邮&nbsp;&nbsp;&nbsp;&nbsp;箱: <input type="text" size="15" id="email" required="required"></label>
+        <br>
+        <label>爱好:<input type="checkbox" name="hobby">阅读
+                   <input type="checkbox" name="hobby">编程
+                   <input type="checkbox" name="hobby">跳舞
+                   <input type="checkbox" name="hobby">足球
+        </label>
+        <div class="a1">
+            <input type="submit" class="i1" value="注册">
+            <input type="reset" value="重置">
+        </div>
+    </fieldset>
+</form>
+
+<script>
+  function getcheckbox(){
+    let obj = document.getElementsByName("hobby");
+    let check_val = [];
+    for(let k in obj){
+        if(obj[k].checked)
+            check_val.push(obj[k].value);
+    }
+    alert(check_val);
+}
+
+function YzFm() {
+    const user = document.getElementById('username').value
+    const pw = document.getElementById("code").value
+    const pwCopy = document.getElementById('copyCode').value
+    const em = document.getElementById('email').value
+
+    let res = [];
+
+    if ( user.length > 10) {
+        let str1 = '用户名的长度不能超过10！';
+        res.push(str1);
+    }
+
+    if (!/^[a-zA-Z]/.test(user)) {
+        let str2 ='用户名必须以字母开头！';
+        res.push(str2);
+    }
+
+    if(pw !== pwCopy){
+        let str3 ='两次输入的密码不一致！';
+        res.push(str3);
+    }
+
+    if (em.indexOf('@') === -1) {
+        let str4 = '邮箱地址不合法，必须包含@符号。'
+        res.push(str4)
+    }
+
+    if(res == null) {
+        alert('注册成功！');
+    }else{
+        alert(res)
+    }
+    // 注册成功后，可以跳转到注册成功页面
+    // window.location.href = 'success.html';
+    return true; // 防止表单提交
+}
+
+</script>
+</body>
+</html>

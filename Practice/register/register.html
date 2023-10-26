@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>用户注册</title>
+</head>
+<body>
+  <form id="registrationForm" onsubmit="return validateForm()">
+    <label for="username">用户名:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">密码:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="confirmPassword">确认密码:</label>
+    <input type="password" id="confirmPassword" required>
+
+    <label for="email">邮箱:</label>
+    <input type="text" id="email" name="email" required>
+
+    <button type="submit">注册</button>
+  </form>
+
+  <script>
+    function validateForm() {
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const email = document.getElementById('email').value;
+
+      if (username.length > 10) {
+        alert('用户名长度不能超过10个字符。');
+        return false;
+      }
+
+      if (!/^[a-zA-Z]/.test(username)) {
+        alert('用户名必须以字母开头。');
+        return false;
+      }
+
+      if (password !== confirmPassword) {
+        alert('两次密码不一致。');
+        return false;
+      }
+
+      if (email.indexOf('@') === -1) {
+        alert('邮箱地址不合法，必须包含@符号。');
+        return false;
+      }
+
+      alert('注册成功！');
+      // 注册成功后，可以跳转到注册成功页面
+      // window.location.href = 'success.html';
+      return true; // 防止表单提交
+    }
+  </script>
+</body>
+</html>

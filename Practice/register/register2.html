@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>用户注册</title>
+</head>
+<body>
+  <form id="registrationForm">
+    <label for="username">用户名:</label>
+    <input type="text" id="username" name="username" required>
+
+    <label for="password">密码:</label>
+    <input type="password" id="password" name="password" required>
+
+    <label for="confirmPassword">确认密码:</label>
+    <input type="password" id="confirmPassword" required>
+
+    <label for="email">邮箱:</label>
+    <input type="text" id="email" name="email" required>
+
+    <input type="submit" value="注册" id="submitButton">
+  </form>
+
+  <script>
+    document.getElementById('registrationForm').addEventListener('submit', function(event) {
+      event.preventDefault(); /* 防止事件的默认行为发生，从而让开发者能够自定义事件的行为。*/
+
+      const username = document.getElementById('username').value;
+      const password = document.getElementById('password').value;
+      const confirmPassword = document.getElementById('confirmPassword').value;
+      const email = document.getElementById('email').value;
+
+      let res = []
+
+      if (username.length > 10) {
+        // alert('用户名长度不能超过10个字符。');
+        let str1 = '用户名长度不能超过10个字符。'+'\n'
+        res.push(str1)
+      }
+
+      if (!/^[a-zA-Z]/.test(username)) {
+        // alert('用户名必须以字母开头。');
+        let str2 = '用户名必须以字母开头。'+'\n'
+        res.push(str2)
+      }
+
+      if (password !== confirmPassword) {
+        // alert('两次密码不一致。');
+        let str3 = '两次密码不一致。'+'\n'
+        res.push(str3)
+      }
+
+      if (email.indexOf('@') === -1) {
+        // alert('邮箱地址不合法，必须包含@符号。');
+        let str4 = '邮箱地址不合法，必须包含@符号。'+'\n'
+        res.push(str4)
+      }
+
+      if(res == null) {
+        alert('注册成功！');
+      }else{
+        alert(res)
+      }
+      // 注册成功后，可以跳转到注册成功页面
+      // window.location.href = 'success.html';
+      return true;
+    });
+  </script>
+</body>
+</html>
