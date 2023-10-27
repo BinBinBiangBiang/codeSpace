@@ -1,0 +1,9 @@
+*{
+  margin: 0;
+  padding: 0;
+  /* outline 轮廓和border看起来一样 ，但是不占空间 */
+  /* outline: 2px solid red; */
+  outline: 0; /* input a 聚焦或高亮时用*/
+  /* box-sizing: border-box;  该属性将会使盒子的大小为你所设置的大小，padding,margin等会使内容的面积变小*/
+  /* box-sizing: content-box; 不会影响到你所设置的大小， padding, margin等不会使内容的面积变小 */
+}

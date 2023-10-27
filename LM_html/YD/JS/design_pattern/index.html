@@ -27,32 +27,42 @@
 
     // 什么是对象 = 属性 + 方法
     // 现实世界很复杂，面向对象要能搞得定设计模式
-    const hjw = {
-      name: '贺经纬',
-      age: 21,
-      hometown: '江西萍乡',
-      isSingle: false,
-      // 形参
-      sendflower(receiver) {
-        //console.log(this); // 对象方法内部this 指向本身
+    const XGuan = {
+      name: '小管',
+      age: 20,
+      height: '185cm',
+      hometown: '江西宜春',
+      isSingle: true,
+      money: '+∞',
+      hobby: '摄影',
+      sendFlowers: function (receiver) {
         receiver.receiveFlower(this);
       }
+      // 上述sendFlowers可以简写为
+      //sendFlowers(){
+      //    ....
+      //}
     }
 
-    const xm = {
+    const XM = {
       name: '小美',
-      emotion: 50,
-      receiveFlower(sender) {
+      age: 19,
+      hometown: '江西南昌',
+      emotion: 60, //假设此时小美心情是60
+      isSingle: true,
+      hobby: '舞蹈',
+      receiveFlowers(sender) {
+        console.log(`${this.name}收到${sender.name}的花`);
         // es6
         // es6 代码更优雅
         // 字符串模版
-        console.log(`${this.name}收到${sender.name}的花`)
+        // console.log(`${this.name}收到${sender.name}的花`)
 
         // es5
         // 命令式代码太low 了
         // console.log(this.name + '收到' + sender.name + '送的花');
         if (this.emotion < 80) {
-          console.log('本宫没心情，打出去')
+          console.log('老娘没心情，要他滚蛋')
         } else {
           console.log('万达走一波')
         }
@@ -60,21 +70,23 @@
     }
 
     // 代理模式
-    const xh = {
+    const XH = {
       name: '小红',
-      hometown: '南昌',
+      hometown: '江西南昌',
 
-      // method 接口 Interface 
+      // 小红类似Java中所讲的接口 Interface ，小管通过小红来达到实现送花功能
+      // 所以小红也得先收花，在送花，两个方法她都得有
       receiveFlower(sender) {
         // console.log('收到' +sender.name+'送的花');
-        if (xm.emotion >= 80) {
-          xm.receiveFlower(sender);
-        }else{
+        if (XM.emotion >= 80) {
+          XM.receiveFlowers(sender);
+        } else {
           setTimeout(function () {
-            xm.emotion = 99;
-            xm.receiveFlower(sender)
-          },200)
-          
+            XM.receiveFlowers(sender);
+            XM.emotion = XM.emotion + 10;
+            console.log(`此时小美的心情:${XM.emotion}`);
+            console.log('2s后再送一次');
+          }, 2000) // 这里假设每过2000ms送一次花。
         }
       }
     }
