@@ -29,6 +29,7 @@ var isValid = function(s) {
       if(map[char]){
           stack.push(char);
       }else{
+          // 判断此时栈顶元素是否和你拿到的 右括号匹配
           const top = stack.pop();
           if(char !== map[top]){
               return false;
