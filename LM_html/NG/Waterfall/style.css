@@ -3,17 +3,13 @@
   padding: 0;
 }
 
-/* #container{
-
-} */
-
 .box{
   float: left;
   padding: 5px;
 }
 
 .box-img{
-  width: 150px;
+  width: 165px;
   padding: 5px;
   border: 1px solid #ccc;
 }
