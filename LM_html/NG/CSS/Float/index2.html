@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      /* 由于下面的的三个div标签进行了换行，换行会导致容器之间存在间隔 */
+      /* 我们将读取到的换行符通过设置font: size 0;可以消除间隔 */
+      font-size: 0;  
+    }
+    body{
+      /* 控制非块级（行内块 或者 行内）元素水平居中 */
+      text-align: center; 
+    }
+    div{
+      width: 100px;
+      height: 100px;
+      display: inline-block;
+      margin: 20px;
+      /* 让div浮动，div内的元素就会同行排列*/
+      /* float: left;  */
+    }
+    .item1{
+      background-color: aqua;
+    }
+    .item2{
+      background-color: purple;
+    }
+    .item3{
+      background-color: green;
+    }
+  </style>
+</head>
+<body>
+  <div class="item1">1</div>
+  <div class="item2">2</div> 
+  <div class="item3">3</div>  
+</body>
+</html>
