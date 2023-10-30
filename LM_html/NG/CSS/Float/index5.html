@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .warp{
+      width: 100%;
+      height: 600px;
+      background: rgb(174, 33, 33);
+      margin-top: 100px;
+      /* margin-left: 10px; */
+      /* 将warp设置为BFC容器，外面的东西影响不到warp内部，warp内部由他自己决定 */
+      /* 这样box盒子的margin-top就不会重叠 */
+      /* margin-left 不会有影响 */
+      overflow: hidden;
+    }
+
+    .box{
+      width: 100%;
+      height: 300px;
+      background: rgb(83, 38, 150);
+      margin-top: 50px;
+      /* margin-left: 100px; */
+    }
+  </style>
+</head>
+<body>
+  <div class="warp">
+    <div class="box">
+
+    </div>
+  </div>
+</body>
+</html>
