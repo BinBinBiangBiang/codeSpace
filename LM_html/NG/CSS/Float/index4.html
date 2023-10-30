@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    ul li{
+      list-style: none;
+      width: 200px;
+      height: 100px;
+      float: left;
+    }
+
+    li:nth-child(1){
+      background: #da8383;
+    }
+    li:nth-child(2){
+      background: #e1e941;
+    }
+    li:nth-child(3){
+      background: #6ceb50;
+    }
+    /* li:nth-child(4){
+      background: #5135bd;
+    } */
+
+    .text{
+      width: 150px;
+      height: 200px;
+      background: rgb(113, 66, 195);
+      /* 三个li自己不努力，那text只能自己努力清除浮动了 哈哈哈 */
+      /* 但不推荐 不符合人类逻辑思维 自己的浮动应该自己清除 */
+      /* clear: both; */
+    }
+
+    /* .clear{
+      clear: left;
+    } */
+    
+    /* 利用伪元素after清除浮动 */
+    /* 单独写一个.clear类利用伪元素清除浮动 */
+    /* 要给哪个标签清除浮动就给其父容器加这个类名 */
+    .clear::after{
+      content: '';
+      clear: both;
+      display: block;
+    }
+
+    ul{
+      overflow: auto;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ul class="clear">
+      <li>1</li>
+      <!-- <div class="clear"></div> -->
+      <li>2</li>
+      <li>3</li>
+      <!-- <li>4</li> -->
+    </ul>
+    <div class="text">
+      Hello World！
+    </div>
+  </div>
+</body>
+</html>
