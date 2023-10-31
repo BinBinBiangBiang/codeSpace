@@ -26,7 +26,7 @@
 5. BFC  (平时写代码使用最多)
 
 # BFC 容器 Block Formatting Context 块级格式化上下文
-- 哪些属性可以创建bfc:
+- 哪些属性可以创建BFC:
 1. float:left || right;
 2. position: absolute || fixed
 3. display:inline-block; （创建BFC，也不会使元素脱离文本流）
