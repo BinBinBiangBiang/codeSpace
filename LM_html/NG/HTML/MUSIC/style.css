@@ -1,15 +1,15 @@
-*{
+* {
   margin: 0;
   padding: 0;
 }
 
-.music__head{
+.music__head {
   position: relative;
   height: 303px;
   overflow: hidden;
 }
 
-.music__head .bg{
+.music__head .bg {
   height: 303px;
   width: 100%;
   background-image: url(https://i0.hdslb.com/bfs/archive/c5e0392db23dada41b8ff5e052881abd7bb59d60.jpg);
@@ -21,22 +21,22 @@
   z-index: -1;
 }
 
-.music__head-title{
+.music__head-title {
   margin: 45px 0;
   color: #fff;
   padding: 0 40px;
   font-size: 12px;
 }
 
-.back{
+.back {
   float: left;
 }
 
-.title{
+.title {
   text-align: center;
 }
 
-.music__body{
+.music__body {
   width: 100%;
   /* 减号两边一定要打空格 不然识别不出来 */
   height: calc(100vh - 130px);
@@ -48,7 +48,7 @@
 }
 
 
-.music__body .body-pic{
+.music__body .body-pic {
   width: 257px;
   height: 283px;
   overflow: hidden;
@@ -63,11 +63,78 @@
   box-shadow: 0 0 20px red;
 }
 
-.body-pic img{
+.body-pic img {
   height: 100%;
 }
 
-.body-desc{
+.body-desc {
   margin-top: 280px;
   text-align: center;
+}
+
+.body-desc .name {
+  font-size: 21px;
+  font-family: SourceHanSansCN;
+  font-weight: bold;
+  color: #000000;
+}
+
+.body-desc .author {
+  font-size: 15px;
+  font-family: SourceHanSansCN;
+  font-weight: bold;
+  color: #4F4F4F;
+}
+
+.music__body .body-line {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-113px);
+  margin-top: 40px;
+  width: 226px;
+  height: 1px;
+  background-color: rgb(186, 126, 48);
+}
+
+.body-lineTime {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-113px);
+  margin-top: 45px;
+  width: 226px;
+
+}
+
+.body-lineTime p {
+  font-size: 7px;
+  font-family: SourceHanSansCN;
+  font-weight: bold;
+  color: #9EA0AD;
+  float: left;
+}
+
+.body-lineTime p:last-child {
+  float: right;
+}
+
+.body-play {
+  position: absolute;
+  left: 50%;
+  display: flex;
+  text-align: center;
+  transform: translateX(-100px);
+  margin-top: 80px;
+  width: 226px;
+  height: 40px;
+}
+
+.body-play i {
+  width: 40px;
+  height: 40px;
+}
+
+.body-play i:nth-child(3) {
+  font-size: 40px;
+  color: red;
+  transform: translateY(-10px);
 }
