@@ -7,6 +7,7 @@ const hourHand = document.querySelector('.hour-hand')
 
 
 function setTime() {
+  //获取当前时间
   const now = new Date()
 
   // 获取当前的秒数
