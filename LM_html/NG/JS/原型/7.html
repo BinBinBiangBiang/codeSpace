@@ -1,0 +1,18 @@
+<!-- Object.create -->
+<script type="text/javascript">
+  let obj = {
+    a: 1
+  }
+
+  // obj2 继承obj对象的属性
+  let obj2 = Object.create(null)
+  // 这里typeof null == 'object'
+
+  // 网易:所有的对象最终都会继承自 Object.prototype ?
+  // 特殊情况
+  // 几乎所有对象都有隐式原型，但有一些特殊情况下，对象可能没有明显的隐式原型。
+  // 一个典型的特殊情况是根对象，也就是没有原型的对象。在JavaScript中，根对象通常是 Object.prototype。
+
+  // 举个特殊例子，你可以通过Object.create(null)创建一个没有隐式原型的对象，
+  // 这个对象通常被称为"字典对象"，因为它不继承任何属性或方法。
+</script>
