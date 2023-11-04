@@ -57,6 +57,7 @@ console.log(str.length)
 var str = 'abc'
 str += 1 // 'abc1'
 var test = typeof (str)  //  'string'
+console.log(test)
 if (test.length == 6) {
   test.sign = 'typeOf的返回结果可能为String'
   // new String(test).sign = 'typeOf的返回结果可能为String'
