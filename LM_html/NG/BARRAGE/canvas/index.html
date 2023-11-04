@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <canvas id="canvas" width="300" height="300"></canvas>
+
+  <script type="text/javascript">
+    let canvas = document.getElementById("canvas");
+
+    // 创建一个2d画布
+    let ctx = canvas.getContext("2d");
+
+    // 想要给画布加颜色，得先设置好颜色再使用fillRect绘制矩形(理解：你要我画一个图形，你总得先规定好颜色吧)
+    // ctx.fillRect(10,10,55,50)
+
+    // ctx.fillRect(10,10,100,50)
+    // ctx.strokeRect(10,70,100,50)
+
+
+    // 笔准备好了
+    // ctx.beginPath();
+    // 笔对准（50,50），准备开始画画
+    // ctx.moveTo(50,50)
+
+    // 一笔画到（200,50）处
+    // ctx.lineTo(200,50)
+    // ctx.lineTo(200,200)
+    // ctx.lineTo(50,200)
+
+
+
+    // 将画笔提起来,将所有路径闭合
+    // ctx.closePath();
+
+
+
+    // 前期工作相当于用没有颜色的笔先画一遍，最后在调用stroke()临摹一遍
+    // ctx.stroke()
+
+    // ctx.fiii()
+
+
+    // ctx.beginPath();
+    // // 画有弧度的曲线
+    // ctx.arc(50,50,40,0,Math.PI/2);
+    
+    // ctx.stroke()
+
+    ctx.font = '30px sans-serif';
+    ctx.fillText('今天你写文章了吗？',10,100)
+    ctx.strokeText('我要写三篇',30,200)
+
+    console.log(ctx)
+  </script>
+</body>
+</html>
