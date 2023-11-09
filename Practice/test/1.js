@@ -1,10 +1,29 @@
-let arr1 = [1, 2];
-let arr2 = [3, 4];
-let arr3 = [5, 6];
-let binArr1 = arr1.concat(arr2);
-// merged为[1, 2, 3, 4]
-console.log(binArr1)
+var intersection = function(nums1, nums2) {
+  let obj = {};
+  const set1 = new Set();
+  const set2 = new Set();
+  let ans =[];
+  for(let i = 0 ;i<nums1.length;i++){
+      const cruNum1 = nums1[i];
+      if(!set1.has(cruNum1)){
+          set1.add(cruNum1);
+      }
+  }
+  console.log(set1)
+  for(let i = 0 ;i<nums2.length;i++){
+      const cruNum2 = nums2[i];
+      if(!set2.has(cruNum2)){
+          set2.add(cruNum2);
+      }
+  }
+  set1.forEach((value) => {
+    if(set2.has(value)){
+      ans.push(value);
+    }
+  })
+  return ans;
+};
 
-let binArr2 = arr1.concat(arr2, arr3);
-console.log(binArr2)
+nums1 = [4,9,5], nums2 = [9,4,9,8,4]
 
+console.log(intersection(nums1, nums2));
