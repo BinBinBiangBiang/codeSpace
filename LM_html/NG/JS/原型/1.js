@@ -1,7 +1,7 @@
 // Person.prototype 原型 也是对象
 
 Person.prototype.say = function () {
-  return 'Hello ' 
+  return 'Hello,我是'+this.name 
 }
 
 function Person(){
