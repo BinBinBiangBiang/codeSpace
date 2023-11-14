@@ -1,0 +1,15 @@
+<view class="hero">
+BiangBiang
+<button bindtap="doLogin">点击贷款</button>
+<view class="car">
+  <view class="hd">
+    <text>{{info.name}}</text>
+  </view>
+  <view class="bd">
+  <text>{{info.model}}</text>
+  <text>{{info.price}}</text>
+  <image src="{{info.pic}}"> </image>
+  </view>
+</view>
+</view>
+
