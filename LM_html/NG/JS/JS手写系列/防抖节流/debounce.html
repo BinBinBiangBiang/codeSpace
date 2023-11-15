@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
 </head>
-
 <body>
-  <form action="https://www.fastmock.site/mock/39ac87de3060aa2bb2ba20a0ff375c81/cat-movie/mostLike" >
+  <!-- <form onsubmit="send()">
     <div>
-      <label for="user">账号：</label>
+      <label for="user">账号</label>
       <input type="text" id="user">
     </div>
-
     <div>
-      <label for="password">密码：</label>
-      <input type="password" id="password">
+      <label for="password">密码</label>
+      <input type="text" id="password">
     </div>
-
-    <button id="btn" onclick="submit">提交</button>
+    <button type="submit">提交</button>
   </form>
-</body>
+   -->
+  
+  <button id="btn">提交</button>
 
-<script>
-  function send(){
-    console.log('提交完成');
-  }
-  let btn = document.getElementById('btn');
-  btn.addEventListener('click',debounce(send,1000));
-
-  function dobounce(fn,delay) {
-    let timer;
-    return function(){
-      if(timer) clearTimeout(timer);
-      timer = setTimeout(() => fn(),delay);
+  <script>
+    let btn = document.getElementById('btn')
+    function send(e) {
+      console.log(this, '提交完成', e);
     }
-  }
-</script>
 
+    btn.addEventListener('click', debounce(send, 1000))
+
+
+    function debounce(fn, delay) {
+      let timer;
+
+      return function() {
+        let args = arguments
+        // let _this = this
+
+        if (timer) clearTimeout(timer)
+
+        timer = setTimeout(() => {
+          fn.call(this, ...args)
+        }, delay)
+      }
+
+    }
+ 
+ </script>
+</body>
 </html>
