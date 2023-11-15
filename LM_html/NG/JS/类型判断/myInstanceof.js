@@ -11,5 +11,5 @@ function myInstanceof(L,R){
 
 const arr = [1]
 
-console.log(myInstanceof(arr,Array))
-console.log(myInstanceof(arr,Object))
+console.log(myInstanceof(arr,Array))   // 输出:true
+console.log(myInstanceof(arr,Object))  // 输出:true
