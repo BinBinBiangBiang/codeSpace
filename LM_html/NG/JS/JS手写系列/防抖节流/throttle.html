@@ -7,15 +7,12 @@
 </head>
 <body>
   <button id="btn">提交</button>
-
   <script>
     let btn = document.getElementById('btn')
     function send(e) {
       console.log('提交了', e);
     }
     btn.addEventListener('click', throttle(send, 1000))
-
-
     function throttle(fn, delay) {
       let prevTime = Date.now()
 
@@ -26,9 +23,7 @@
         }
         
       }
-
     }
-
   </script>
 </body>
 </html>
