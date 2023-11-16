@@ -1,0 +1,7 @@
+.hero{
+    color: #00f7ff;
+    background-color: rgb(216, 48, 76);
+}
+.button{
+    background-color: rgb(75, 46, 207);
+}

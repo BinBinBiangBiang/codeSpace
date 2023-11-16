@@ -1,13 +1,1 @@
-/**单屏类名section**/
-.section{
-  height: 100vh;
-}
-/* hero 风格主题 */
-.hero{
-
-}
-
-/* 白色背景 */
-.white{
-  background: white;
-}
+/* 模块化划分 */
