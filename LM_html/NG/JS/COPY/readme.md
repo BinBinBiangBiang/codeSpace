@@ -12,3 +12,9 @@
 
 
 # 深拷贝
+- 常见的深拷贝方法：
+JSON.parse(JSON.stringify(obj))
+
+- 缺点：
+1. 无法拷贝 undefined function Symbol bigint 这几种数据类型
+2. 
