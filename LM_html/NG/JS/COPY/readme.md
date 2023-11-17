@@ -17,4 +17,4 @@ JSON.parse(JSON.stringify(obj))
 
 - 缺点：
 1. 无法拷贝 undefined function Symbol bigint 这几种数据类型
-2. 
+2. 无法处理循环引用

@@ -12,6 +12,7 @@ let obj = {
 
 
 
+
 let newObj = JSON.parse(JSON.stringify(obj))
 
 obj.like.type = '吃饭'

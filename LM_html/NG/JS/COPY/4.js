@@ -23,7 +23,7 @@ function shalldowCopy(obj) {
     }
   }
   return objCopy;
-}
+} 
 
 let newObj = shalldowCopy(obj);
 console.log(newObj);
