@@ -25,26 +25,52 @@
  
 
 // 暴力解法 超时
+// var maxSlidingWindow = function(nums, k) {
+//   const len = nums.length;
+//   let left = 0;
+//   let right = k-1;
+//   let res = [];
+//   while(right < len){
+//       const max = calMax(left,right);
+//       res.push(max);
+//       left++;
+//       right++;
+//   }
+
+//   function calMax(x,y){
+//       let maxNum = -Infinity;
+//       for(let i = x ; i<= y ; i++){
+//           if(nums[i] > maxNum){
+//               maxNum = nums[i];
+//           }
+//       }
+//       return maxNum;
+//   }
+//   return res;
+// };
+
+
+// 滑动窗口 双向队列
 var maxSlidingWindow = function(nums, k) {
+  // 在窗口移动的过程中，只根据发生变化的元素对最大值进行更新
   const len = nums.length;
-  let left = 0;
-  let right = k-1;
-  let res = [];
-  while(right < len){
-      const max = calMax(left,right);
-      res.push(max);
-      left++;
-      right++;
+  const res = [];
+  const deque = [];
+  for(let i = 0 ; i < len ; i++){
+      while(deque.length && nums[deque[deque.length -1]] <= nums[i]){
+          deque.pop();
+      }
+      deque.push(i);
+
+      // 对头的元素是否出去窗口了
+      if(deque[0] <= i-k){
+          deque.shift();
+      }
+
+      if(i >= k-1){
+          res.push(nums[deque[0]]);
+      }
   }
 
-  function calMax(x,y){
-      let maxNum = -Infinity;
-      for(let i = x ; i<= y ; i++){
-          if(nums[i] > maxNum){
-              maxNum = nums[i];
-          }
-      }
-      return maxNum;
-  }
   return res;
 };
