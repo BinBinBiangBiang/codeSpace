@@ -1,4 +1,4 @@
-.hero {}
+/* .hero {} */
 .hero image {
   height: 38.2vh;
 }
