@@ -10,7 +10,8 @@ let obj = {
   e:Symbol('hello'),
 }
 
-
+// obj.c = obj.d
+// obj.d.m = obj.c
 
 
 let newObj = JSON.parse(JSON.stringify(obj))
