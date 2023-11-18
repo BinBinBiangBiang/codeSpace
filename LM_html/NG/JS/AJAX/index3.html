@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn">新歌速递</button>
+  <ul id="ul">
+
+  </ul>
+
+  <script type="text/javascript">
+    const btn = document.getElementById('btn');
+    btn.addEventListener('click', () => {
+      fetch('http://192.168.31.45:3000/top/song?type=7')
+      .then((data) =>data.json())
+      .then(res => {
+        console.log(res);
+      })
+    })
+  </script>
+</body>
+
+</html>
+
+
+<!-- 
+    const btn = document.getElementById('btn');
+    btn.addEventListener('click', () => {
+      fetch('http://192.168.31.45:3000/top/song?type=7')
+      .then((data) =>data.json())
+      .then(res => {
+        console.log(res);
+      })
+    }) 
+  
+这段代码使用了原生的 JavaScript 和 Fetch API 来进行异步网络请求。以下是对代码的逐行解释：
+
+const btn = document.getElementById('btn');： 获取页面中具有 id 属性为 'btn' 的元素，并将其赋值给变量 btn。通常，
+
+这是一个按钮元素。
+
+btn.addEventListener('click', () => { ... });： 给按钮元素添加一个点击事件监听器。当按钮被点击时，下面的箭头函数将被执行。
+
+fetch('http://192.168.31.45:3000/top/song?type=7')： 
+
+使用 Fetch API 发起一个 GET 请求到指定的URL（'http://192.168.31.45:3000/top/song?type=7'）。
+
+Fetch API 提供了一种更现代和灵活的方式来进行网络请求。
+
+.then((data) => data.json())： 使用 Promise 的 then 方法来处理请求的响应。data.json() 是一个异步操作，
+
+将响应体解析为 JSON 对象。这里使用箭头函数将解析后的 JSON 数据传递给下一个 .then()。
+
+.then(res => { console.log(res); })： 再次使用 Promise 的 then 方法，这次处理已解析的 JSON 数据。
+
+在这个简单的例子中，只是将数据打印到控制台。 -->
