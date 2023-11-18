@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://at.alicdn.com/t/c/font_4311621_6z7gqidc4kt.css">
+  <link rel="stylesheet" href="./Login.css">
+  <style>
+
+  </style>
+</head>
+
+<body>
+  <div class="login">
+    <div class="login__hd">
+      <div>
+        <a class="iconfont icon-fanhui"></a>
+      </div>
+      <div class="hd_name">
+        <a class="iconfont icon-a-Property1wangyiyunyinle"></a>
+        网易云音乐
+      </div>
+    </div>
+    <div class="login__bd">
+      <input type="text" placeholder="登录邮箱" id="email" class="ip">
+      <input type="text" placeholder="密码" id="pw" class="ip">
+      <input type="button" class="go" id="login" value="登录"><br><br>
+      <a class="reset">重置密码</a>
+    </div>
+    <div id="successMessage">
+      <p>Login successful! Welcome, <span id="loggedInUser"></span></p>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    const login = document.getElementById('login');
+    const email = document.getElementById('email');
+    const password = document.getElementById('pw');
+    const successMessage = document.getElementById('successMessage');
+
+    login.addEventListener('click', () => {
+      let em = email.value;
+      let pw = password.value;
+
+      if (em && pw) {
+        successMessage.style.display = 'inline-block';
+        setTimeout(() => {  
+          successMessage.style.display = 'none';
+        }, 1000);
+        fetch(`http://192.168.31.45:3000/login?username=${em}&password=${pw}`)
+          .then((data) => data.json())
+          .then(res => {
+
+          })
+      }
+    })
+
+  </script>
+</body>
+
+</html>

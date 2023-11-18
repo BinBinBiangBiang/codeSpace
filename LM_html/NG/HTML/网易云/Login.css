@@ -1,0 +1,76 @@
+.login__hd {
+  /* position: relative; */
+  height: 50px;
+  display: flex;
+}
+
+.icon-fanhui {
+  position: absolute;
+  float: left;
+  font-size: 30px;
+}
+
+.icon-a-Property1wangyiyunyinle {
+  color: red;
+  font-size: 19px;
+  margin-right: 2px;
+}
+
+.hd_name {
+  margin-top: 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  font-size: 15px;
+  right: 35%;
+}
+
+.login__bd {
+  margin-top: 100px;
+}
+
+.login__bd .ip {
+  margin-left: 17%;
+  background-color: rgb(244, 242, 242);
+  width: 60%;
+  height: 30px;
+  margin-top: 10px;
+  border: none;
+  border-radius: 10px;
+  padding: 10px;
+  font: 900 14px '';
+}
+
+.go {
+  margin-left: 17%;
+  border: none;
+  outline: none;
+  margin-top: 20px;
+  width: 65%;
+  height: 30px;
+  padding: 5px;
+  border-radius: 20px;
+  font-size: 16px;
+  color: white;
+  background-color: rgb(246, 188, 188);
+  font: 900 15px '';
+}
+
+.reset {
+  position: relative;
+  left: 42%;
+}
+
+#successMessage {
+  display: none;
+  background-color: #4caf50;
+  color: #fff;
+  text-align: center;
+  padding: 20px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+}
