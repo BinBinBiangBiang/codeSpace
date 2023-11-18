@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <button id="btn">新歌速递</button>
+  <ul id="ul">
+
+  </ul>
+
+  <script type="text/javascript" src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.js"></script>
+  <script type="text/javascript">
+    const btn = document.getElementById('btn');
+    btn.addEventListener('click', () => {
+      // 发接口请求
+      $.ajax({
+        url: 'http://192.168.31.45:3000/top/song?type=7',
+        method: 'GET',
+        dataType:'json',
+        success:function(res){
+          console.log(res);
+        }
+      });
+    })
+  </script>
+</body>
+
+</html>
+
+<!-- $.ajax({ ... });： 这是使用 jQuery 提供的 AJAX 函数的开始。$.ajax 是一个强大而灵活的函数，允许你发送各种类型的HTTP请求。
+
+url: 'http://192.168.31.45:3000/top/song?type=7',： 指定了请求的目标URL
+
+，这里是'http://192.168.31.45:3000/top/song?type=7'。这个URL可能是一个服务器端的API端点，用于获取特定类型的歌曲信息。
+
+method: 'GET',： 指定了请求的HTTP方法，这里是GET。GET方法通常用于从服务器获取数据。
+
+dataType: 'json',： 指定了期望从服务器返回的数据类型。在这里，它指定了期望的响应数据是JSON格式。
+
+jQuery会尝试解析从服务器返回的响应，并将其转换为JavaScript对象。
+
+success: function(res) { console.log(res); }： 这是定义了请求成功时的回调函数。当请求成功完成且服务器响应状态为200时，
+
+这个函数将被调用。参数res包含了从服务器返回的数据，这里简单地将其打印到控制台。
+
+最终，整个 $.ajax 调用将向指定的URL发送一个GET请求，并在请求成功时将服务器返回的JSON数据打印到控制台。
+
+这种方式是一种常见的使用 AJAX 进行异步数据请求的方式，特别是在使用 jQuery 或其他类似库时。 -->
