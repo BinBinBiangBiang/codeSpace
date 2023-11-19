@@ -64,7 +64,8 @@
 
 #successMessage {
   display: none;
-  background-color: #4caf50;
+  background-color: #404540;
+  border-radius: 5px;
   color: #fff;
   text-align: center;
   padding: 20px;
