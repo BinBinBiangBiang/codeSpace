@@ -25,7 +25,13 @@
   text-transform: uppercase;
 }
 .card .description, .card .meta {
+  margin-top: 32rpx;
   margin-bottom: 16rpx;
-  color:rgba(0,0,0,0.85);
+  color:rgba(65, 54, 54, 0.85);
   font-size: 32rpx;
+}
+
+.card .price{
+  margin-top: 20rpx;
+  font-size: 26rpx;
 }

@@ -37,7 +37,7 @@
     ./当前目录  相对路径
     / 代表绝对路径  项目的根目录
  -->
-  <navigator url="/pages/vehicles/show">
+  <navigator url="/pages/vehicles/show?id={{item.id}}">
     <image src="{{ item.image }}"
            mode="aspectFill"/>
     <view class="content">
@@ -46,7 +46,7 @@
         <view class="sub-header">
         {{ item.sub-header }}
         </view>
-        <view class="description">{{ item.description }}</view>
+        <view class="description meta">{{ item.description }}</view>
         <view class="meta price">{{ item.meta.price }}</view>
       </view>
     </view>

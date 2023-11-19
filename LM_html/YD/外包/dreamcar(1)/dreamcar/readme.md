@@ -39,3 +39,9 @@
     - 公用的样式
     - 模块化
   - page.wxss 页面业务样式
+  - 页面中比较独立的模块，独立css文件
+  - 通用组件也可以
+    button card 都是组件
+  - 通用的业务也可以
+    .hero>.content>.header+.sub_header...
+    维护花的时间更多，甚至不可维护
