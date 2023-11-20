@@ -1,0 +1,12 @@
+<!--pages/lists2/lists2.wxml-->
+<swiper class="swiper_container" indicator-dots indicator-color="white" indicator-active-color="gray" autoplay interval="1000" circular>
+  <swiper-item>
+    <view class="item">1</view>
+  </swiper-item>
+  <swiper-item>
+    <view class="item">2</view>
+  </swiper-item>
+  <swiper-item>
+    <view class="item">3</view>
+  </swiper-item>
+</swiper>

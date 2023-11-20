@@ -1,7 +1,9 @@
 {
   "pages": [
-    "pages/lists/lists",
     "pages/index/index",
+    "pages/stories/index",
+    "pages/lists2/lists2",
+    "pages/lists/lists",
     "pages/cars/cars",
     "pages/logs/logs",
     "pages/vehicles/show"

@@ -1,0 +1,25 @@
+/* pages/lists2/lists2.wxss */
+.swiper_container{
+  height: 150px;
+  width: 100%;
+}
+
+.item{
+  height: 150px;
+  width: 100%;
+  text-align: center;
+  line-height: 150px;
+}
+
+swiper-item:nth-child(1) .item{
+  width: 100%;
+  background-color:pink;
+}
+swiper-item:nth-child(2) .item{
+  width: 100%;
+  background-color:blue;
+}
+swiper-item:nth-child(3) .item{
+  width: 100%;
+  background-color:green;
+}
