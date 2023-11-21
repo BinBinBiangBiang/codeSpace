@@ -10,9 +10,8 @@
     .box {
       height: 600px;
       border: 1px solid rgb(43, 38, 38);
+      /* flex-wrap: wrap; */
       display: flex;
-      flex-wrap: wrap;
-      align-content:space-around;
     }
 
     .box div {
@@ -25,9 +24,11 @@
     .b1 {
       background-color: blue;
     }
+    
 
     .b2 {
       background-color: pink;
+      flex-basis: 300px;
     }
 
     .b3 {
@@ -38,12 +39,6 @@
 
 <body>
   <div class="box">
-    <div class="b1">A</div>
-    <div class="b2">B</div>
-    <div class="b3">C</div>
-    <div class="b1">A</div>
-    <div class="b2">B</div>
-    <div class="b3">C</div>
     <div class="b1">A</div>
     <div class="b2">B</div>
     <div class="b3">C</div>
