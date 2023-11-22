@@ -37,8 +37,10 @@ function C(){
 
 
 //----------------------------------------------------------------
+// await 不能单独出现
 async function foo(){    // 函数前面加上一个async 相当于 函数内部返回了一个return new Promise(function(resolve,reject) {})
-  await A();
+  await A();  // await会阻塞后续代码，将后续代码推入到微任务队列
+  // console.log(1); // A()先执行完 ， 1再打印
   await B();
   await C();
 }
