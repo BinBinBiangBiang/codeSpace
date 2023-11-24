@@ -1,0 +1,16 @@
+{
+  "name": "fetch_books",
+  "version": "1.0.0",
+  "description": "- 前端 也要以http服务  将html/css/js请求到本地展现\r   5501 web服务\r - 后端 接口服务 \r     主要体现是在某个url下返回json数据\r   3000 端口",
+  "main": "index.js",
+  "scripts": {
+    "dev": "json-server -w db.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "json-server": "^0.17.4"
+  },
+  "devDependencies": {}
+}

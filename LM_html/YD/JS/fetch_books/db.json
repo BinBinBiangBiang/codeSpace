@@ -1,0 +1,51 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "JS从入门到入土",
+      "author": "老六"
+    },
+    {
+      "id": 2,
+      "title": "JavaScript高级程序设计",
+      "author": "管管"
+    },
+    {
+      "title": "写给新手全栈快速入门",
+      "author": "BiangBiang",
+      "id": 3
+    },
+    {
+      "id": 4,
+      "title": "JS已经入土",
+      "author": "吊杰"
+    },
+    {
+      "title": "代理模式",
+      "author": "裴正汉",
+      "id": 5
+    },
+    {
+      "title": "小马蜂",
+      "author": "龙王",
+      "id": 6
+    },
+    {
+      "title": "我TM服了啊",
+      "author": "真的是",
+      "id": 7
+    }
+  ],
+  "comments": [
+    {
+      "body": "管管的文章好啊",
+      "postId": "2",
+      "id": 4
+    },
+    {
+      "body": "翔哥的文章也不错啊",
+      "postId": "1",
+      "id": 5
+    }
+  ]
+}

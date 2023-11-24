@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link href="https://cdn.bootcdn.net/ajax/libs/twitter-bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- 语义化标签  对SEO更好 防止网络爬虫-->
+  <div class="container">
+    <table class="table table-striped">
+      <caption>文章表</caption>
+      <!-- 表头 -->
+      <thead>
+        <tr>
+          <th>序号</th>
+          <th>标题</th>
+          <th>作者</th>
+        </tr>
+      </thead>
+      <tbody>
+
+      </tbody>
+    </table>
+    <form name="postForm">
+      <div class="form-group">
+        <label for="titleInput">标题</label>
+        <input type="text" class="form-control" id="titleInput" placeholder="请输入标题">
+      </div>
+      <div class="form-group">
+        <label for="authorInput">作者</label>
+        <input type="text" class="form-control" id="authorInput" placeholder="请输入标题">
+      </div>
+      <button class="btn btn-primary" type="submit">添加</button>
+    </form>
+  </div>
+  <script>
+    fetch('http://localhost:3000/posts')
+      .then(res => res.json())
+      .then(data => {
+        document.querySelector('.table tbody').innerHTML =
+          data
+            .map(posts => `
+                <tr>
+                  <td>${posts.id}</td> 
+                  <td>${posts.title}</td>
+                  <td>${posts.author}</td>
+                </tr>
+              `)
+            .join('')
+      })
+
+
+
+    const oForm = document.forms['postForm'];
+    oForm.addEventListener('submit', function (event) {
+      event.preventDefault(); // 阻止表单的默认行为
+
+      // 检查输入是否为空
+      if (!oForm.titleInput.value || !oForm.authorInput.value) {
+        alert("请填写标题和作者");
+        return;
+      }
+      // 这里使用了 oForm.querySelector('#titleInput').value，
+      // 而实际上，你的 HTML 中的输入框使用了 id 属性，
+      // 因此直接通过全局对象 document 也是可以访问到的，而不必使用 querySelector
+
+      const newPost = {
+        "title": oForm.querySelector('#titleInput').value,
+        "author": oForm.querySelector('#authorInput').value
+      }
+      // console.log(newPost);
+      fetch('http://localhost:3000/posts', {
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json'
+        },   //headers: {'Content-Type': 'application/json'} 是指定了 HTTP 请求头部的一部分。在这里，它告诉服务器发送的数据是 JSON 格式的。
+        body: JSON.stringify(newPost)
+        /*
+        body: JSON.stringify(newPost) 将创建一个 JSON 格式的请求主体，其中包含了标题和作者信息。
+        这种方式对于使用 JSON 作为数据交换格式的 RESTful API 非常常见，因为服务器通常期望接收 JSON 格式的数据。
+        */
+      })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+        })
+
+      // 清空输入框
+      oForm.titleInput.value = '';
+      oForm.authorInput.value = '';
+    });
+  </script>
+</body>
+
+</html>
