@@ -29,7 +29,6 @@ var isPalindrome = function(s) {
   }
   let newS = s.replace(/[^a-zA-Z0-9]/g,'')
   let s1 = newS.toLowerCase();
-  console.log(s1);
   const len = newS.length;
   for(let i = 0,j = len-1;i<j;i++,j--){
       if(s1.charAt(i) === s1.charAt(j)){
