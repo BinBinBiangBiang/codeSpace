@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app"></div>
+  <template id="my-app">
+    <h2>歌曲列表</h2>
+    <ul>
+      <!-- 使用v-for时 常在v-for其后加上 :key="唯一且不同的标识"   否则性能就会降低 ,但下面这个index其实也没有用 这个以后再了解 -->
+      <li v-for="(item ,index) in songs" :key="index" v-if="">{{index+1}}--{{item}}
+        <a href="#" @click="del(index)">x</a>
+      </li>
+    </ul>
+  </template>
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const App = {
+      template: '#my-app',
+      data() {
+        return {
+          songs: [
+            '说好不哭',
+            '稻香',
+            '说好的幸福呢',
+            '等你下课',
+            '告白气球',
+            '半岛铁盒',
+            '夜曲'
+          ]
+        }
+      },
+      methods:{
+        del(i){
+          this.songs.splice(i, 1);
+        }
+      }
+    }
+
+    Vue.createApp(App).mount('#app')
+  </script>
+</body>
+
+</html>
