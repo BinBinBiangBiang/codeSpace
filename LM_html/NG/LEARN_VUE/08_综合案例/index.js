@@ -32,17 +32,19 @@ Vue.createApp({
           count: 1
         },
       ],
-      sum: 0
     }
   },
   computed: {
-
-    getSum() {
-      for (let i = 0; i < books.length; i++) {
-        sum += this.books[i].count * this.books[i].price
+    totalPrice() {
+      // return this.books.reduce((sum, book) => {
+      //   return sum + book.price * book.count;
+      // }, 0);
+      let sum = 0;
+      for (let i = 0; i < this.books.length; i++) {
+        sum += this.books[i].price * this.books[i].count;
       }
       return sum;
-    }
+    },
   },
   methods: {
     add(index) {
