@@ -31,18 +31,25 @@ Vue.createApp({
           price: 128.00,
           count: 1
         },
-      ]
+      ],
+      sum: 0
     }
   },
   computed: {
-    
+
+    getSum() {
+      for (let i = 0; i < books.length; i++) {
+        sum += this.books[i].count * this.books[i].price
+      }
+      return sum;
+    }
   },
   methods: {
     add(index) {
       this.books[index].count++;
     },
     down(index) {
-      if(this.books[index].count != 1){
+      if (this.books[index].count != 1) {
         this.books[index].count--;
       }
     },
