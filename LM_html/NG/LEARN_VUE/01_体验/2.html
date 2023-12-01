@@ -1,31 +1,29 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title></title>
 </head>
+
 <body>
   <div id="app"></div>
-  <script type="x-template" id="template">
-    <div>
-      <h3>{{message}}</h3>
-      <h2>hello</h2>
-      <h1>hello</h1>
-    </div>
-  </script>
+  <template id="tel">
+    <h3>{{message}}</h3>
+  </template>
 
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <script>
-    // document.getElementById("template");
     Vue.createApp({
-      template: '#template',
-      data:function(){
+      template: '#tel',
+      data: function () {
         return {
-          message : 'Hello BiangBiang!'
+          message: 'Hello BiangBiang!'
         }
       }
     }).mount('#app')
   </script>
 </body>
+
 </html>
