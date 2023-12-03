@@ -22,40 +22,35 @@
  * @param {string} num2
  * @return {string}
  */
-var addStrings = function(num1, num2) {
-  const len1 = num1.length;
-  const len2 = num2.length;
-  let i = len1-1;
-  let j = len2-1;
-  let add = 0;
-  let ans = [];
-  while(i>=0 || j >=0 || add != 0){
-      const x = i >= 0 ? num1[i] - '0' : 0;
-      const y = j >= 0 ? num2[j] - '0' : 0;
-      const result = x + y + add;
-      ans.push(result % 10);
-      add = Math.floor(result / 10);
-      i--;
-      j--;
-  }
-  return ans.reverse().join("");
-};
+// var addStrings = function (num1, num2) {
+//     const len1 = num1.length;
+//     const len2 = num2.length;
+//     let i = len1 - 1;
+//     let j = len2 - 1;
+//     let add = 0;
+//     let ans = [];
+//     while (i >= 0 || j >= 0 || add != 0) {
+//         const x = i >= 0 ? num1[i] - '0' : 0;
+//         const y = j >= 0 ? num2[j] - '0' : 0;
+//         const result = x + y + add;
+//         ans.push(result % 10);
+//         add = Math.floor(result / 10);
+//         i--;
+//         j--;
+//     }
+//     return ans.reverse().join("");
+// };
 
-var addStrings = function(num1, num2) {
-  const len1 = num1.length;
-  const len2 = num2.length;
-  let i = len1-1;
-  let j = len2-1;
+var addStrings = function (num1, num2) {
+  let len1 = num1.length - 1;
+  let len2 = num2.length - 1;;
   let add = 0;
-  let ans = [];
-  while(i>=0 || j >=0 || add != 0){
-      const x = i >= 0 ? num1[i] - '0' : 0;
-      const y = j >= 0 ? num2[j] - '0' : 0;
-      const result = x + y + add;
-      ans.push(result % 10);
-      add = Math.floor(result / 10);
-      i--;
-      j--;
+  let ans = '';
+  while (len1 >= 0 || len2 >= 0 || add != 0) {
+      if (len1 >= 0) add += num1[len1--] - '0';
+      if (len2 >= 0) add += num2[len2--] - '0';
+      ans += ''+(add % 10);//现在是逆序相加的
+      add = Math.floor(add / 10);//保留进位进入下次运算
   }
-  return ans.reverse().join("");
+  return ans.split('').reverse().join("");
 };
