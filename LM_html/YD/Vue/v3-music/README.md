@@ -1,0 +1,59 @@
+# vue 网易云音乐
+
+- 界面
+    npm init vite 开发脚手架
+- 后台
+    netsea
+    :3000
+- 前后端分离的全栈开发
+
+- 做之前先给npm换源（我这里已经换好了 以后不用换了）
+npm config set registry https://registry.npmmirror.com
+
+- tailwindcss  可以提升60%以上的css开发  => 原子化css开发
+    -  npm i -D tailwindcss postcss autoprefixer  后面两张这里不讲 先用（这几个工具可以使css写的更快）
+    上述指令 npm i -D 是安装在开发阶段所需要的工具  安装完后可以在package.json文件中的devDependencies中可以找到
+
+    - npx tailwindcss init -p  
+        npx 执行安装或者未安装的包
+        GPT解释：这个命令的含义是使用npx执行tailwindcss命令行工具，初始化一个新的tailwindcss项目，并生成一个JavaScript格式的配置文件（tailwind.config.js）。
+
+    - tailwind.css
+      使用
+
+    - 在上述生成的配置文件的content中配置./src/**/*.{vue,js,ts,jsx,tsx}  使得src下的所有{}内这些后缀文件都支持tailwindcss
+
+
+- 切页面
+- vue组件化思维
+    - 根组件 App.vue
+    - layout 组件
+      - Menu
+      - Header
+
+- vite.config.js 是 vite 工程化的配置文件
+    - alias 短路径
+        @ -> ./src 回城
+
+/----------------------------------------------------------------------------------------------------
+1.在package.json文件中 
+devDependencies和dependencies有什么区别
+  解释：
+  dependencies：这个属性用来指定项目在运行时所依赖的模块，也就是生产环境下需要的模块。这些模块会被安装到生产环境中，用于项目的正常运行。
+
+  devDependencies：这个属性用来指定项目在开发过程中所依赖的模块，也就是开发环境下需要的模块。这些模块通常是一些开发工具、测试框架或者编译工具，不会被包含在最终的生产环境中。
+
+/----------------------------------------------------------------------------------------------------
+2.
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./src/**/*.{vue,js,ts,jsx,tsx}"
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+
+其中./src/**/*.{vue,js,ts,jsx,tsx}是为了使得src下的所有{}内这些后缀文件都支持tailwindcss
