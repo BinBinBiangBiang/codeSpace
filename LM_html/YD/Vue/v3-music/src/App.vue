@@ -12,16 +12,17 @@ import Header from '@/components/layout/header/Header.vue'
   <!-- 原子性样式 用与开发很方便 -->
   <div class="w-screen h-screen flex item-strentch overflow-hidden">
     <div class="w-56 h-screen flex-shrink-0">
-      <Menu/>
+      <Menu />
     </div>
     <div class="flex-1 flex flex-col">
       <div class="h-14">
-        <Header/>
+        <Header />
+      </div>
+      <div>
+        <ElButton>按钮</ElButton>
       </div>
     </div>
   </div>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>

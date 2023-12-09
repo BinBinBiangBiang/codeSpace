@@ -35,6 +35,37 @@ npm config set registry https://registry.npmmirror.com
     - alias 短路径
         @ -> ./src 回城
 
+- 企业级vue开发框架 element-plus PC 版
+    里面有好多组件可以拿来就用
+    Vue 是渐进式的MVVM 开发框架  解决的是一个开发模式
+    element-plus 是一个组件库 提供一系列的UI组件  可以找到我们想要得组件
+
+- 给vite写了一段是vite中的组件自动引入的代码 如下
+-  npm i -D unplugin-auto-import unplugin-vue-components
+  解释：
+  unplugin-auto-import用于自动导入JavaScript模块，而unplugin-vue-components用于自动导入Vue组件。
+
+
+- 通用组件
+    /components/common/
+    不属于特定的组件，具有极高的复用性，在多个项目中可以重复复用
+
+- 图标字体库
+    - 要用到哪些图标
+        import {} from '@icon-park/vue-next'
+
+
+
+
+
+
+
+
+
+
+
+
+
 /----------------------------------------------------------------------------------------------------
 1.在package.json文件中 
 devDependencies和dependencies有什么区别
