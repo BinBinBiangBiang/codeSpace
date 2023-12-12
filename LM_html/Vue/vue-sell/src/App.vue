@@ -1,17 +1,22 @@
 <template>
-  <v-header/>
-  <router-view/>
+  <v-header />
+  <router-view />
 </template>
 
 <script>
 import Header from '@/components/header/Header.vue';
-export default{
-  components:{
-    'v-header':Header,
+import { getSeller } from '@/api'
+export default {
+  components: {
+    'v-header': Header,
+  },
+  created() {
+    getSeller().then((res) => {
+      console.log(res);
+    })
   }
+
 }
 </script>
 
-<style lang="less">
-
-</style>
+<style lang="less"></style>

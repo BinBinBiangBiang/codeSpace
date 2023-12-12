@@ -12,78 +12,98 @@
         <div class="description">蜂鸟专送/38分钟送达</div>
         <div class="support">
           <!--  -->
+          <SupportIcon :size="1" :type="0"/>
           <span class="text">在线支付满28减5</span>
         </div>
       </div>
       <div class="support-count">
         <span class="count">5个</span>
-        <i class="iconfont">></i>
+        <i class="iconfont icon-youjiantou"></i>
       </div>
     </div>
 
     <div class="bulletin-wrapper">
 
     </div>
+
+    <div class="bg" style="background-image: url('http://static.galileo.xiaojukeji.com/static/tms/seller_avatar_256px.jpg');"></div>
   </div>
 </template>
 
 <script>
-  export default {
-    
+import SupportIcon from '@/components/support-icon/Support-icon.vue'
+export default {
+  components: {
+    SupportIcon
   }
+}
 </script>
 
 <style lang="less" scoped>
 @import '@/common/style/variable.less';
 @import '@/common/style/mixin.less';
-.header{
+
+.header {
+  position: relative;
   background: @color-background-ss;
-  .content-wrapper{
+
+  .content-wrapper {
     display: flex;
     padding: 24px 12px 18px 24px;
     position: relative;
-    .avatar{
+
+    .avatar {
       width: 64px;
       height: 64px;
-      img{
+
+      img {
         width: 100%;
         border-radius: 2px;
       }
     }
-    .content{
+
+    .content {
       flex: 1;
       margin-left: 16px;
       color: @color-white;
-      .title{
+
+      .title {
         display: flex;
         align-items: center;
         margin-bottom: 8px;
-        .brand{
+
+        .brand {
           width: 30px;
           height: 18px;
           // background-image: url('./brand@2x.png');
           .bg-image('brand');
           background-size: cover;
         }
-        .name{
+
+        .name {
           margin-left: 6px;
           font-size: @fontsize-large;
           font-weight: bold;
         }
       }
-      .description{
+
+      .description {
         font-size: @fontsize-small;
         margin-bottom: 8px;
       }
-      .support{
+
+      .support {
         display: flex;
         align-items: center;
-        .text{
+
+        .text {
           font-size: @fontsize-small-s;
+          margin-left: 4px;
         }
       }
     }
-    .support-count{
+
+    .support-count {
       position: absolute;
       right: 12px;
       bottom: 14px;
@@ -96,14 +116,30 @@
       align-items: center;
       color: @color-white;
     }
-    .count{
+
+    .count {
       font-size: @fontsize-small-s;
     }
-    .iconfont{
+
+    .iconfont {
       font-size: @fontsize-small-s;
       margin-left: 2px;
+
+      .icon-youjiantou {
+        font-size: @fontsize-medium;
+      }
     }
   }
 
-}
-</style>
+  .bg{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    background-size: 100% 100%;
+    z-index: -1;
+    filter: blur(10px);
+  }
+
+}</style>
