@@ -1,5 +1,5 @@
 <template>
-  <v-header />
+  <v-header :seller="sellerData" />
   <router-view />
 </template>
 
@@ -10,9 +10,17 @@ export default {
   components: {
     'v-header': Header,
   },
+  data(){
+    return {
+      sellerData:{
+
+      }
+    }
+  },
   created() {
     getSeller().then((res) => {
       console.log(res);
+      this.sellerData = res
     })
   }
 
