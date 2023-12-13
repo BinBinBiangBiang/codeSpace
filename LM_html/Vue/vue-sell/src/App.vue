@@ -1,5 +1,17 @@
 <template>
   <v-header :seller="sellerData" />
+  <!-- tab -->
+  <div class="tab">
+    <div class="tab-wrapper">
+      <router-link to="/goods">商品</router-link>
+    </div>
+    <div class="tab-wrapper">
+      <router-link to="/comment">评论</router-link>
+    </div>
+    <div class="tab-wrapper">
+      <router-link to="/seller">商家</router-link>
+    </div>
+  </div>
   <router-view />
 </template>
 
@@ -19,7 +31,7 @@ export default {
   },
   created() {
     getSeller().then((res) => {
-      console.log(res);
+      // console.log(res);
       this.sellerData = res
     })
   }
@@ -27,4 +39,26 @@ export default {
 }
 </script>
 
-<style lang="less"></style>
+<style lang="less">
+@import '@/common/style/variable.less';
+  .tab{
+    display: flex;
+    height: 36px;
+    &-wrapper{
+      flex: 1;
+      text-align: center;
+      line-height: 36px;
+      a{
+        text-decoration: none; // 删除文本下划线
+        color: @color-font;
+        display: block;
+        width: 100%;
+        height: 100%;
+        &.router-link-active{
+          color: @color-red;
+          border-bottom: 2px solid @color-red;
+        }
+      }
+    }
+  }
+</style>
