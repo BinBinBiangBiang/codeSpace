@@ -54,6 +54,54 @@ npm config set registry https://registry.npmmirror.com
     - 要用到哪些图标
         import {} from '@icon-park/vue-next'
 
+- 断点调试法
+    当我们开始想写项目的时候，在GitHub上找一个开源项目 ，有看不懂的地方加上断点，一路跟下去，这是优秀的代码学习方法
+    - 组件和数据分离
+      我们封装组件是为了让组件"干净" ，里面就只有template 和 script 以及css 数据分离开来
+    - 数据统一管理 
+      - 分成api.js 和 http.js
+        - api.js
+        其中api.js封装的是业务接口，函数名字自带解释
+        - http.js
+          复用axios的底层封装
+
+
+- 开发文档
+    - 前端需要响应式数据
+    - 数据请求要分离到utils.api.js中
+    - 后端是个黑盒子
+      理解以下几个事情：
+        1. 基于http
+            由axios提供  它封装了get方法
+        2.  给后端看的开发文档
+            /url GET/POST params {}
+            response 什么？
+
+    - 以后写自己的项目
+        - Laf 做后端
+            - 在Laf里面用相应的数据库
+            - 写相应的云函数
+            - 写一个开发文档 这就是亮点
+
+- 有哪些种组件？
+    - 父子组件
+    - 页面组件
+        用vue-router来配置
+    - 通用组件
+        components/common/
+
+    - 框架UI组件
+    - 业务组件 / components
+
+- 路由的组件流程
+    - router 配置文件夹
+    - views/ 页面级别组件
+    - 路由接管了应用
+        会有好多页面的，view比components 级别高
+    - App.vue router-view Root.vue
+    - 其他各个页面，多级路由
+
+
 
 
 
