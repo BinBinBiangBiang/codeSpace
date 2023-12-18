@@ -1,0 +1,34 @@
+<template>
+  <div>
+    <div class="head">
+      <input type="text" name="" v-model="message">
+      <button type="button" @click="submit">确定</button>
+    </div>
+    <div class="body">
+      <ul>
+        <li v-for="(index, item) in lists" :key="index">{{ index }}</li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script>
+
+export default {
+  data() {
+    return {
+      lists: ['html'],
+      message: ''
+    }
+  },
+  methods: {
+    submit() {
+      if (!this.message) return
+      this.lists.push(this.message);
+      this.message = ''
+    }
+  }
+}
+</script>
+
+<style lang="less"></style>
