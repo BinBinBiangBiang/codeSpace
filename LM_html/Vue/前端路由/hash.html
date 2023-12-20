@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <ul>
+    <li><a href="#/home">首页</a></li>
+    <li><a href="#/about">关于</a></li>
+  </ul>
+  
+    <div id="routerview">
+
+    </div>
+
+    <script>
+      const routes = [
+        {
+          path: '#/home',
+          component: '首页页面内容'
+        },
+        {
+          path: '#/about',
+          component: 'about page'
+        }
+      ]
+
+      const routerview = document.getElementById('routerview')
+
+      // 当页面的哈希值发生变化时触发名为onHashChange的函数,哈希值是URL中“#”符号后面的部分
+      window.addEventListener('DOMContentLoaded', onHashChange)
+
+      // 这行代码是在窗口的哈希值（URL中“#”符号后面的部分）发生变化时
+      // 触发名为onHashChange的函数。
+      window.addEventListener('hashchange', onHashChange)
+
+      function onHashChange() {
+        // location 在js中就是专门用来代表Window窗口的url的
+        console.log(location.hash);
+        routes.forEach((item, index) => {
+          if (item.path === location.hash) {
+            routerview.innerHTML = item.component
+          }
+        })
+      }
+    </script>
+</body>
+
+</html>
