@@ -58,25 +58,19 @@ Vue 项目创建及全家桶开发指南
 创建 Vue 项目
 使用 Vite 脚手架创建项目：
 
-bash
-Copy code
 npm init vite
 打开项目并安装依赖：
 
-bash
-Copy code
-cd your-project-name
 npm install
 安装 Vue Router 进行单页面开发：
 
-bash
-Copy code
+
 npm install vue-router
 安装 Pinia，一个类似 Vuex 的状态管理库：
 
-bash
-Copy code
+
 npm install pinia
+
 Vue 3 全家桶
 Vue 响应式组件开发
 组件结构：
