@@ -1,25 +1,34 @@
 <script setup lang="ts">
-import { onMounted,ref } from 'vue';
-import { useBanner }  from './api/index';
-import type { Banner } from './models/banner';
+// import { useBanner }  from './api/index';
+// import type { Banner } from './models/banner';
+import { usePersonalizedStore } from './store/personalized';
+import Banner from './components/Banner.vue'
+import { onMounted,toRefs} from 'vue';
 
 
-let banners = ref<Banner[]>([]) // 最简单的vue响应式
+
+const { personalizedMv } = toRefs(usePersonalizedStore())
+const { getPersonalized } = usePersonalizedStore();
 
 onMounted(async() =>{
-  banners.value = await useBanner()
-  console.log(banners.value);
-  
+  await getPersonalized();
 })
+
 </script>
 
 <template>
+  <Banner/>
+  
   <ul>
-    <li v-for="banner in banners" :key="banner.targetId">
-      <img :src="banner.pic">
+    <li v-for="mv in personalizedMv" :key="mv.id">
+      <img :src="mv.picUrl">
     </li>
   </ul>
 </template>
 
 <style scoped>
+img{
+  width: 400px;
+  height: 180px;
+}
 </style>

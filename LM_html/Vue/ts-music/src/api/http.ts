@@ -1,6 +1,6 @@
 import axios from 'axios'
 
-axios.defaults.baseURL = 'http://localhost:3001'
+axios.defaults.baseURL = 'http://localhost:3000'
 axios.defaults.timeout = 10 * 1000;
 axios.defaults.maxBodyLength = 5 * 1024 * 1024;
 axios.defaults.withCredentials = true;

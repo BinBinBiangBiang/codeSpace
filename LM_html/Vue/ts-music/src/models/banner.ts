@@ -12,6 +12,8 @@ export interface Banner {
  bannerId:number;
 }
 
+
+
 // 跟vuex 一道，把数据严谨再严谨
 // let banner:Banner = {pic: '范家吵架图'}
 
