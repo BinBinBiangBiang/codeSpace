@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div id="app">hello</div>
+
+  <script>
+    let app = document.getElementById('app')
+
+    //----------------------------------------------------------------
+    app.style.position = 'relative';
+    // 老版本的流量器下面四行代码一行回流一次，但如今的浏览器会将下面代码优化，只会回流一次
+    // app.style.width =  '100px'
+    // app.style.height = '200px'
+    // app.style.left= '10px'
+    // app.style.right = '10px'
+
+    //----------------------------------------------------------------
+    // 下述代码会发生四次回流，浏览器读取到console.log()，里面计算了容器的属性，相当于获取到了容器的宽高等等，和offsetWidth属性一样
+    // 会造成队列中的代码强制执行，造成回流
+    app.style.width =  '100px'
+    console.log(app.style.width);
+
+    app.style.height = '200px'
+    console.log(app.style.height);
+
+    app.style.left= '10px'
+    console.log(app.style.left);
+
+    app.style.right = '10px'
+    console.log(app.style.right);
+    //----------------------------------------------------------------
+    
+
+    //----------------------------------------------------------------
+    // 只会回流一次
+    // app.style.cssText = 'width: 100px; height:100px;left:10px;right:10px;'
+    //----------------------------------------------------------------
+
+  </script>
+</body>
+</html>
