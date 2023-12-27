@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>个人主页网站</title>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+
+    }
+
+    .App {
+      min-height: 100vh;
+      display: flex;
+      Flex-direction: column;
+
+
+    }
+
+    /* 导航栏样式 */
+    .navigation-bar {
+      margin-left: 14px;
+      margin-right: 14px;
+      font-size: 15px;
+      display: flex;
+      flex: 0 0 50px;
+      justify-content: space-around;
+    }
+
+    .navigation-bar>div {
+      flex: 1;
+      display: inline-block;
+      padding: 8px;
+      line-height: 34px;
+      text-align: center;
+    }
+
+    .choosed {
+      background-color: rgb(37, 194, 186);
+      color: rgb(198, 130, 35);
+    }
+
+    /* 挂载点的样式 */
+    .my-body {
+      display: flex;
+      flex: 1;
+      font-family: '隶书';
+    }
+
+
+
+
+    /* home首页样式 */
+
+    .home-right {
+      font-family: '黑体';
+      display: flex;
+      Flex-direction: column;
+      flex: 2;
+      background-color: rgb(252, 254, 254);
+
+    }
+
+    .home-left {
+      flex: 8;
+      background-color: rgb(250, 251, 248);
+
+    }
+
+    .home-photo-bigPhoto {
+
+      width: 100%;
+      height: 280px;
+
+      background-color: rgb(251, 252, 250);
+    }
+
+    .home-photo-bigPhoto>div {
+      width: 200px;
+      height: 200px;
+
+      border-radius: 50%;
+      margin-top: 40px;
+      margin-left: 40px;
+      /* 超出则隐藏 */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .home-photo-bigPhoto>div>img {
+      height: 100%;
+
+    }
+
+    .home-photo-title1,
+    .home-photo-title2 {
+      background-color: rgb(122, 197, 122);
+
+      line-height: 30px;
+      flex: 0 0 30px;
+    }
+
+    /* 首页右侧栏小图片 */
+    .home-photo-title1 div,
+    .home-photo-title2 div {
+      margin-left: 12px;
+    }
+
+    .home-photo-litlePhotos {
+      flex: 4;
+      display: inline-block;
+      background: rgb(252, 253, 251);
+    }
+
+    /* 小图片的样式 */
+    .home-photo-litlePhotos .content {
+      margin-left: 10px;
+      margin-top: 25px;
+      display: flex;
+      background-color: rgb(246, 248, 244);
+      width: 280px;
+      height: 180px;
+      flex-wrap: wrap;
+    }
+
+    .home-photo-litlePhotos .content div {
+      width: 70px;
+      height: 80px;
+      /* 超出则隐藏 */
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .home-photo-litlePhotos .content>div>img {
+      height: 100%;
+
+
+    }
+
+    .home-photo-survey {
+      flex: 3;
+    }
+
+    .home-photo-survey .content {
+      width: 200px;
+      height: 200px;
+      /* background-color: peru; */
+      margin-left: 40px;
+      margin-top: 10px;
+    }
+
+
+    /* 首页左边 */
+    .home-left {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .home-left .head {
+      height: 100px;
+      background-color: rgb(170, 227, 206);
+      font-size: 40px;
+      line-height: 100px;
+
+    }
+
+    .home-left .body {
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+      background-color: rgb(255, 255, 255);
+      padding: 10px;
+    }
+
+    .home-left .body p {
+      font-size: 20px;
+    }
+
+    .home-left .body .img {
+      text-align: center;
+    }
+
+    .home-left .body .img img {
+      height: 350px;
+    }
+
+    /* 最新照片和小调查字体样式 */
+    .f1 {
+      font-style: italic;
+      font-family: 楷体;
+      font-size: 15px;
+    }
+
+    a {
+
+      text-decoration: none;
+      /* 去掉下划线 */
+      color: #000;
+      /* 设置链接颜色为黑色 */
+
+    }
+
+    /* 菱形 */
+    .parallelogram {
+      background-color: rgb(209, 240, 223);
+      transform: skewX(-30deg);
+    }
+
+    /* 背景图 */
+    .img{
+      width: 100%;
+      display: flex;
+      justify-content: center;
+    }
+
+    .img1{
+      width: 300px;
+      height: 400px;
+      background-size: cover;
+      background-image: url('https://5b0988e595225.cdn.sohucs.com/images/20190523/cc388795e1604546b8accad8cf400b51.jpeg');
+      background-position: center center;
+      box-shadow: 0 0 5px 2px #37b0c8 inset;
+    }
+
+    /* 左上角图片修饰-阴影 */
+    .f2{
+      background-size: cover;
+      background-image: url('https://www.gznf.net/images/2021/09/6-1632823180-1.jpeg');
+      background-position: center center;
+      box-shadow: 0 0 5px 2px #d92828 ;
+    } 
+
+
+    /* welcome页面修饰 */
+    .welcome{
+      height: 100%;
+      line-height: 50%;
+    }
+  
+  </style>
+</head>
+
+<body>
+  <div class="App">
+    <div class="navigation-bar">
+      <div id="navigation-bar-home">首页</div>
+      <div id="navigation-bar-hobby">我的爱好</div>
+      <div id="navigation-bar-university"><a href="https://www.ecut.edu.cn/">我的大学</a></div>
+      <div id="navigation-bar-dream">我的梦想</div>
+      <div id="navigation-bar-album">班级相册</div>
+      <div id="navigation-bar-block">我的博客</div>
+      <div id="navigation-bar-me">关于我</div>
+    </div>
+    <!-- 挂载点 -->
+    <div class="my-body" id="my-body">
+      <div class="welcome" style="text-align: center">欢迎来到我的网站</div>
+    </div>
+
+    <!-- 挂载组件 -->
+    <template id="home">
+      <div class="home-right">
+        <div class="home-photo-bigPhoto">
+          <div class="f2"></div>
+        </div>
+        <div class="home-photo-title1">
+          <div class="f1">最新照片</div>
+        </div>
+        <div class="home-photo-litlePhotos">
+          <div class="content">
+            <div>
+              <img
+                src="https://img.zcool.cn/community/0133a25d3e2a7fa80120695cf4db76.jpg@3000w_1l_0o_100sh.jpg"
+                alt="" />
+            </div>
+            <div>
+              <img
+                src="https://ts1.cn.mm.bing.net/th/id/R-C.734e9fda1ed59cc6a018dd30d5915114?rik=9hVqnZYY758jKA&riu=http%3a%2f%2fimg.lanimg.com%2ftuku%2fyulantu%2f121016%2f235026-12101613062993.jpg&ehk=NHQIFNT%2bDrPIMNRTzE4F%2fjxYcgrhNC1qHmE46Ohc1Z0%3d&risl=&pid=ImgRaw&r=0"
+                alt="" />
+            </div>
+            <div>
+              <img src="https://img.zcool.cn/community/01a9985df4ee3ca801219cce81fc4e.jpg@1280w_1l_2o_100sh.jpg" alt="" />
+            </div>
+            <div>
+              <img
+                src="https://ts1.cn.mm.bing.net/th/id/R-C.d589aa9c2181919eb42cf1c018540d22?rik=%2bf24XsXcriWgcg&riu=http%3a%2f%2fn.sinaimg.cn%2fsinacn10101%2f486%2fw2048h1638%2f20190518%2f35a1-hwzkfpv0668656.jpg&ehk=uurf2L1GpFcQ4C1duwDoLEo8S%2bVT7CASS%2bYRFWWi4H8%3d&risl=&pid=ImgRaw&r=0"
+                alt="" />
+            </div>
+            <div>
+              <img
+                src="https://ts1.cn.mm.bing.net/th/id/R-C.082a4376317dbb1083bf8f435bfeb3aa?rik=jau1ThthZXR6RQ&riu=http%3a%2f%2fi2.3conline.com%2fimages%2fpiclib%2f201106%2f20%2fbatch%2f1%2f98279%2f1308530035306qdydv76cdu.jpg&ehk=3YxwNJH4SeD1Kn2l4Md%2bi2aVT9ZZGbAICrOsTPVBaws%3d&risl=&pid=ImgRaw&r=0"
+                alt="" />
+            </div>
+            <div>
+              <img
+                src="https://img.zcool.cn/community/01283d56d82c3f32f875520f72bcd5.jpg@1280w_1l_2o_100sh.jpg"
+                alt="" />
+            </div>
+            <div>
+              <img src="https://ts1.cn.mm.bing.net/th/id/R-C.9ab97cac8b4667f423e997b0c4433d3d?rik=Auu2d3lVt0KuIg&riu=http%3a%2f%2fpic.bizhi360.com%2fbbpic%2f78%2f8878.jpg&ehk=%2frp3BcsyZxhnRJJsrqgjYIy3iFj%2fifrF8z1%2fICp6tec%3d&risl=&pid=ImgRaw&r=0"
+                alt="" />
+            </div>
+            <div>
+              <img
+                src="https://ts1.cn.mm.bing.net/th/id/R-C.6dc572068878a50e8677159f268e83e1?rik=fKMtCZIX5NWQEw&riu=http%3a%2f%2fpic.bizhi360.com%2fbpic%2f36%2f3936.jpg&ehk=Ce9tAjkBBKqv5%2f6mIdTIK0fOpEONGyZcGgbKLz9SsQI%3d&risl=&pid=ImgRaw&r=0"
+                alt="" />
+            </div>
+          </div>
+        </div>
+        <div class="home-photo-title2">
+          <div class="f1">小调查</div>
+        </div>
+        <div class="home-photo-survey">
+          <div class="content">
+            请你选择你喜欢的运动: <br />
+            <input type="checkbox" />篮球 <br />
+            <input type="checkbox" />足球 <br />
+            <input type="checkbox" />网球 <br />
+            <button>提交</button>
+          </div>
+        </div>
+      </div>
+      <div class="home-left">
+        <div class="head ">《当你老了》--叶芝</div>
+        <div class="body">
+          <div>
+            <p>
+              &nbsp;&nbsp;
+              当年华已逝，你两鬓斑白，沉沉欲睡，坐在炉边慢慢打盹，请取下我的这本诗集，
+              请缓缓读起，如梦一般，你会重温，你那脉脉眼波，她们是曾经那么的深情和柔美
+              多少人曾爱过你容光焕发的楚楚魅力，爱你的倾城容颜，或是真心，或是做戏，
+              但只有一个人!他爱的是你圣洁虔诚的心!
+              当你洗尽铅华，伤逝红的老去，他也依然深爱着你!
+            </p>
+          </div>
+          <div class="img">
+            <!-- 图片在线地址 -->
+            <div class="img1">
+              <!-- <img
+              src="https://5b0988e595225.cdn.sohucs.com/images/20190523/cc388795e1604546b8accad8cf400b51.jpeg"
+              alt="" /> -->
+            </div>
+          </div>
+          <div>
+            <p>
+              &nbsp;&nbsp;炉里的火焰温暖明亮，你轻轻低下头去，
+              带着淡淡的凄然，为了枯萎熄灭的爱情，喃喃低语此时他正在千山万壑之间独自游荡，
+              在那满天凝视你的繁星后面隐起了脸庞。
+            </p>
+          </div>
+        </div>
+      </div>
+    </template>
+  </div>
+
+  <script>
+    //路径对象
+    const route = [
+      {
+        id: "navigation-bar-home",
+        path: "#/home",
+        template: "home",
+      },
+      {
+        id: "navigation-bar-hobby",
+        path: "#/my-hobbies",
+        template: "hobby",
+      },
+      {
+        id: "navigation-bar-university",
+        path: "#/my-university",
+        template: "university",
+      },
+      {
+        id: "navigation-bar-album",
+        path: "#/class-album",
+        template: "album",
+      },
+      {
+        id: "navigation-bar-dream",
+        path: "#/my-dream",
+        template: "dream",
+      },
+      {
+        id: "navigation-bar-block",
+        path: "#/my-block",
+        template: "block",
+      },
+      {
+        id: "navigation-bar-me",
+        path: "#/about-me",
+        template: "me",
+      },
+    ];
+    //获取到挂载点对象body,内容将会被挂在到body里面
+    const body = document.getElementById("my-body");
+
+    //挂载函数
+    function onLoad() {
+      //遍历路由数组,路由匹配
+      route.forEach((element) => {
+        //读取当前的hash值遍历路由对象数组选中对应的对象
+        if (element.path == location.hash) {
+          console.log("进行挂载");
+          let template1 = document.getElementById(element.template);
+          body.innerHTML = template1.innerHTML;
+        }
+      });
+    }
+
+    //更改hash值
+    function navigationBarHandel() {
+      onLoad();
+      // 使用 document.querySelectorAll 获取所有 导航栏下的 所有div 元素
+      //保存在 divsInContainer
+      var divsInContainer = document.querySelectorAll(".navigation-bar div");
+      divsInContainer.forEach((item) => {
+        // console.log(item);
+        item.addEventListener("click", () => {
+          // console.log(item);
+          // console.log(location);
+          // console.log(location.hash);
+          // console.log("id", item.getAttribute("id"));
+
+          //增加选中效果
+
+          for (let index = 0; index < divsInContainer.length; index++) {
+            console.log('修改选中效果');
+            const element = divsInContainer[index];
+            console.log(element);
+            if (element.getAttribute('id') == item.getAttribute('id')) {
+              item.setAttribute("class", 'choosed')
+              item.classList.add("parallelogram")
+              continue
+            }
+            element.setAttribute('class', null)
+
+          }
+
+
+
+
+          //修改哈希值
+          for (let i = 0; i < route.length; i++) {
+            //当导航块元素id匹配id相等的路由对象
+            //将当前location.hash改为当前对象的path
+            const element = route[i];
+            if (element.id == item.getAttribute("id")) {
+              location.hash = element.path;
+              break;
+            }
+          }
+          // console.log("类名", item.getAttribute("class"));
+          onLoad();
+        });
+      });
+    }
+    function show() {
+      location.hash = ''
+    }
+    window.addEventListener('pageshow', show)
+    window.addEventListener("hashchange", navigationBarHandel);
+    window.addEventListener("DOMContentLoaded", navigationBarHandel);
+  </script>
+</body>
+
+</html>
