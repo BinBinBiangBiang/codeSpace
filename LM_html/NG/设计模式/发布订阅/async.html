@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    let event = new CustomEvent('finish', { detail: {name: 'ok'}, 'bubbles': true, 'cancelable': false});
+
+    function fnA(){
+      setTimeout(function(){
+        console.log('请求A完成');
+        window.dispatchEvent(event);
+      },1000)
+    }
+
+    function fnB(){
+      setTimeout(function(){
+        console.log('请求B完成');
+      },500)
+    }
+
+    fnA();
+
+    window.addEventListener('finish',() => fnB());
+  </script>
+</body>
+</html>

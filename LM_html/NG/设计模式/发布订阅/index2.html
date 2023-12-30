@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+
+  </div>
+
+  <script>
+    
+    // composed 指的是事件是否会在影子DOM根节点之外触发侦听器
+    // 事件在影子DOM根节点之外触发侦听器，就称为composed事件
+    let ev = new Event('look', { bubbles: true, cancelable: false ,composed: true });
+    
+
+    let box = document.getElementById('box');
+    let boxShadow = box.attachShadow({mode:'open',delegatesFocus: false});
+    boxShadow.innerHTML = `
+      <div class="title">我是影子DOM</div> 
+    `
+
+    box.addEventListener('look', (event) => {
+      if (event.cancelable) {
+        event.preventDefault();
+      } else {
+        console.log('在box上触发了look事件');
+      }
+    });
+
+    let boxChild = box.shadowRoot.querySelector('.title');
+    // console.log(boxChild);
+    boxChild.dispatchEvent(ev) // 在box上发布look事件
+  </script>
+</body>
+
+</html>

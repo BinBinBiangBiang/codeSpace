@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .title{
+      color: red;
+      font-size: 26px;
+    }
+    body{
+      --color:green
+    }
+  </style>
+</head>
+<body>
+  <div>
+    <div class="title">我是真实的标题</div>
+  </div>
+  <div id="root"></div>
+
+  <script>
+    let root  = document.getElementById("root");
+    // delegatesFocus: true 表示子元素可以获取焦点，默认是false,案例就是我点击了用户名字，想让我点击内容也能输入框聚焦，
+    // 所以我们使用delegatesFocus: true 来让子元素获取焦点。
+    // mode: 'open' 表示影子DOM可以获取到其他元素的样式，默认是closed
+    let rootShadow = root.attachShadow({mode: 'open',delegatesFocus: true});
+    // 影子DOM 是不收其他样式影响的  可以自己修改样式 像下面一样在插入时自己写一个style 这样定义显然很麻烦 不过还支持css变量，
+    // 所以我们可以使用css变量来定义样式
+    rootShadow.innerHTML = `
+    <div class="title">我是shadowDOM的标题</div>  
+      <style>
+        :host{
+          // color:blue;
+          color:var(--color);
+        }  
+      </style>
+    `  
+
+    // console.log(root.shadowRoot);   获取影子DOM的动物结构，当mode 属性设置为open时，才能获取到，否则获取不到。
+    // 不能直接通过获取rootShadow的动物结构来获取到影子DOM的动物结构，因为shadowDOM的动物结构是不一样的，
+    // 所以我们需要通过root.shadowRoot来获取影子DOM的动物结构。
+  </script>
+</body>
+</html>

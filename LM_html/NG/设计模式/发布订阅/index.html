@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    #box {
+      width: 100px;
+      height: 100px;
+      background: #000;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="box">
+
+  </div>
+
+  <script>
+    // 创建一个支持冒泡且不能被取消的look事件
+    // 第一个参数bubbles 指的是事件是否能冒泡，如果能冒泡的话就可以就可以向外层容器传递
+    // 第二个参数cancelable 指的是事件是否可以被取消，如果可以被取消的话，就不能触发该订阅事件
+    
+    let ev = new Event('look', { bubbles: true, cancelable: false });  
+
+    let box = document.getElementById('box');
+    box.addEventListener('look', (event) => {
+      // console.log(event);
+      if (event.cancelable) {
+        event.preventDefault();
+      } else {
+        console.log('在box上触发了look事件');
+      }
+    });
+
+    // window.addEventListener('look', function(){
+    //   console.log('在window上触发了look事件');
+    // });
+
+    box.dispatchEvent(ev) // 在box上发布look事件
+  </script>
+</body>
+
+</html>
