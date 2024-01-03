@@ -36,6 +36,7 @@ export default {
     right: 0;
     bottom: 0;
     top: 0;
+    z-index: 999;
     background: @color-background-s;
     color: @color-white;
     backdrop-filter: blur(10px);  // 将这个容器盖住的部分虚化 ， 本身自己不虚化
@@ -50,9 +51,9 @@ export default {
     &.fade-enter-active,&.fade-leave-active{
       transition: all 0.5s ease;
     }
-    .detail-wrapper{
+    // .detail-wrapper{
 
-    }
+    // }
 
     .detail-close{
       width: 30px;
