@@ -41,6 +41,7 @@ const router = useRouter()
 
 const state = reactive({ // 将对象变成响应式
   nickname: '',
+  username: '',
   password: ''
 })
 
