@@ -26,7 +26,7 @@ import Home from '../views/Home.vue'  // 直接引入 只能用于首页，它�
 const routes:RouteRecordRaw[] = [
   {
     path:'/',
-    redirect:'/dashboard' // 重定向  背后是状态码 302
+    redirect:'/login' // 重定向  背后是状态码 302
   },
   {
     path:'/login',
