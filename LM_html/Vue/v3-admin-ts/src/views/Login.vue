@@ -98,6 +98,7 @@ const submitForm = (formEl :FormInstance | undefined) => {
               .roleList[param.username == 'admin'?'admin':'user'];
               //localStorage.setItem('ms_username', param.username)：将用户名存储在本地存储中。
           localStorage.setItem('ms_keys', JSON.stringify(keys))  
+          permiss.setKeys(keys)
           router.push('/dashboard')
       } else {
           ElMessage.error('请校验表单')

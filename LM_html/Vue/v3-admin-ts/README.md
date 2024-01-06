@@ -29,6 +29,37 @@
       - store
       - 函数的参数
 
+## vue 考题
+- <component/ :is="comName">
+   :is="comName" => 是个占位符
+   
+- <template/> 
+   不会显示到页面上   可以接收指令 v-if,v-model 等等 不会添加标签
+
+## 项目亮点
+   - 带有角色校验的菜单
+      - 菜单
+         el-menu>el-sub-menu>el-menu-item
+      - 当前选中的菜单
+         ：default-active="route.path"
+      - 哪些菜单可以看到？
+         指令？ 自定义指令
+
+
+## 项目难点
+   - 多组件状态的共享和设计
+      - vuex 和 pinia 
+         - 用pinia   vuex 是树状关系 而pinia没有这种关系，用起来很灵活，使用hooks编程，加一个defineStore 没有vuex的树状约束 
+         我们可以直接执行函数拿到对应的数据，语法上很简洁
+         - 学vuex 设计模式  state mutation action getter 更安全
+
+      - 学习过一些开源项目
+      - 当在多个组件中，特别是兄弟组件或者跨页面组件中的值进行传递时
+         在共享状态需求的时候，我通过封装成一个store函数，可以轻松解决上面的问题
+         而在以前我们是通过ref + props + emits 换成store
+         
+
+
 //---------------------------------------------------------------------
 # Element-plus 字体图标的使用 
 

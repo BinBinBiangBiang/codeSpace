@@ -1,68 +1,65 @@
 <template>
   <div class="header">
-    <div class="collapse-btn" @click="collapseChange">
-      <el-icon v-if="collapse"><Expand/></el-icon>
-      <el-icon v-else><Expand/></el-icon>
-    </div>
-    <div class="logo">后台管理系统</div>
-    <div class="header-right">
-      <div class="header-user-con">
-        <div 
-            class="btn-bell"
-            @click="router.push('/tabs')"
-        >
-          <el-tooltip
-              effect="dark"
-              content="新消息" 
-              placement="bottom"
-          >
-          <!-- 有${message}消息要显示 -->
-              <i class="el-icon-lx-notice" style="width: 20px;height:20px;"></i>
-          </el-tooltip>
-          <span class="btn-bell-badge" v-if="message">{{message}}</span>
+        <!-- 折叠按钮 -->
+        <div class="collapse-btn" @click="collapseChange">
+          <el-icon v-if="sidebar.collapse"><Expand /></el-icon>
+          <el-icon v-else><Fold /></el-icon>
+		    </div>
+        <div class="logo">后台管理系统</div>
+        <div class="header-right">
+              <div class="header-user-con">
+                    <div 
+                        class="btn-bell"
+                        @click="router.push('/tabs')"
+                    >
+                        <el-tooltip
+                            effect="dark"
+                            content="新消息" 
+                            placement="bottom"
+                        >
+                        <!-- 有${message}消息要显示 -->
+                            <i class="el-icon-lx-notice" style="width: 20px;height:20px;"></i>
+                        </el-tooltip>
+                        <span class="btn-bell-badge" v-if="message">{{message}}</span>
+                    </div>
+                    <!-- 用户头像 -->
+                    <el-avatar class="user-avator" :size="30" :src="imgurl"></el-avatar>
+                    <!-- 用户名下拉菜单 -->
+                    <el-dropdown
+                        class="user-name"
+                        trigger="click"
+                        @command="handleCommand"
+                      >
+                          <span class="el-dropdown-link">
+                          {{ username }}
+                          <el-icon class="el-icon--right">
+                              <arrow-down/>
+                          </el-icon>
+                          </span>   
+                          <!-- 插槽 slot -->
+                          <template #dropdown>
+                              <el-dropdown-menu>
+                                  <a 
+                                    href="http://github.com/lin-xin/vue-manage-system" 
+                                    target="_blank"
+                                  >
+                                  <el-dropdown-item>项目仓库</el-dropdown-item>
+                                  </a>
+                                  <el-dropdown-item command="user">个人中心</el-dropdown-item>
+                                  <el-dropdown-item divided command="loginout">退出登录</el-dropdown-item>
+                              </el-dropdown-menu>
+                          </template>
+                    </el-dropdown>
+              </div>
         </div>
-        <el-avatar 
-          class="user-avator"
-          :size="30"
-          :src="imgurl"
-        >
-
-        </el-avatar>
-        <el-dropdown
-            class="user-name"
-            trigger="click"
-            @command="handleCommand"
-          >
-            <span class="el-dropdown-link">
-            {{ username }}
-            <el-icon class="el-icon--right">
-                <arrow-down/>
-            </el-icon>
-          </span>
-          <!-- 插槽 slot -->
-          <template #dropdown>
-            <el-dropdown-menu>
-              <a 
-                href="http://github.com/lin-xin/vue-manage-system" 
-                target="_blank"
-              >
-              <el-dropdown-item>项目仓库</el-dropdown-item>
-            </a>
-            <el-dropdown-item command="user">个人中心</el-dropdown-item>
-            <el-dropdown-item divided command="loginout">退出登录</el-dropdown-item>
-            </el-dropdown-menu>
-          </template>
-        </el-dropdown>
-        
-      </div>
-    </div>
   </div>
 </template>
 
 <script lang="ts" setup>
 import imgurl from '../assets/img/img.jpg'
 import { useRouter } from 'vue-router'
-import { ref } from 'vue'
+import { useSidebarStore } from '../store/sidebar';
+import { computed } from 'vue'
 
 const router = useRouter()
 const message: number = 5;
@@ -78,9 +75,12 @@ const handleCommand = (command: string) =>{
   }
 }
 
-const collapse = ref(false);
+const sidebar = useSidebarStore()
+const collapse = computed(() =>{
+  sidebar.handleCollapse();
+});
 const collapseChange = ()=>{
-  
+  sidebar.handleCollapse();
 }
   
 </script>
