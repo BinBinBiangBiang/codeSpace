@@ -14,13 +14,14 @@
                     >
                         <el-tooltip
                             effect="dark"
-                            content="新消息" 
+                            :content="message ? `有${message}条未读消息` : `消息中心`" 
                             placement="bottom"
                         >
                         <!-- 有${message}消息要显示 -->
-                            <i class="el-icon-lx-notice" style="width: 20px;height:20px;"></i>
+                            <i class="el-icon-lx-notice" style="width: 40px;height:40px;"></i>
                         </el-tooltip>
-                        <span class="btn-bell-badge" v-if="message">{{message}}</span>
+                        <span class="btn-bell-badge" v-if="message"><i class="iconfont icon-tongzhifill" style="color: rgb(221, 20, 20); font-size: 23px;"></i></span>
+                        <span class="" v-else><i class="iconfont icon-tongzhifill" style="color: rgb(229, 204, 204); font-size: 23px;"></i></span>
                     </div>
                     <!-- 用户头像 -->
                     <el-avatar class="user-avator" :size="30" :src="imgurl"></el-avatar>
@@ -59,10 +60,20 @@
 import imgurl from '../assets/img/img.jpg'
 import { useRouter } from 'vue-router'
 import { useSidebarStore } from '../store/sidebar';
-import { computed } from 'vue'
+import { eventBus } from '../store/EventBus';
+import { ref,onMounted } from 'vue'
+// import { computed } from 'vue'
 
 const router = useRouter()
-const message: number = 5;
+
+const message = ref()
+
+onMounted(()=>{
+    eventBus.on('unreadLen', (data) => {
+    message.value = data;
+    });
+})
+
 
 const username = localStorage.getItem('ms_username')
 
@@ -76,9 +87,9 @@ const handleCommand = (command: string) =>{
 }
 
 const sidebar = useSidebarStore()
-const collapse = computed(() =>{
-  sidebar.handleCollapse();
-});
+// const collapse = computed(() =>{
+//   sidebar.handleCollapse();
+// });
 const collapseChange = ()=>{
   sidebar.handleCollapse();
 }
@@ -135,8 +146,8 @@ const collapseChange = ()=>{
 }
 .btn-bell-badge {
     position: absolute;
-    right: 4px;
-    top: 0px;
+    right: 15px;
+    top: 3px;
     width: 8px;
     height: 8px;
     border-radius: 4px;

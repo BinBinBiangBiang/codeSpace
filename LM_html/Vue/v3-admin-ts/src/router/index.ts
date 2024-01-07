@@ -51,6 +51,15 @@ const routes:RouteRecordRaw[] = [
         component: () => import('../views/Dashboard.vue')
       },
       {
+        path:'/tabs',
+        name:'tabs',
+        meta:{
+          title:'Tabs',
+          permiss:'2'
+        },
+        component: () => import('../views/Tabs.vue')
+      },
+      {
         path:'/table',
         name:'basetable',
         meta:{

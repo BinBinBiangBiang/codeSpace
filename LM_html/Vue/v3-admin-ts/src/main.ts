@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import './assets/css/main.css'
 import 'element-plus/dist/index.css'
-import './assets/css/color-dark.css'
+import './assets/css/color-dark.css'    
 import { usePermissStore } from './store/permiss.ts'
 // import * as语法用于将一个模块的所有导出内容作为一个命名空间对象导入。
 //在这种情况下，import * as ElementPlusIconsVue将@element-plus/icons-vue模块中的所有导出内容作为ElementPlusIconsVue对象导入。
