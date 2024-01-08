@@ -55,8 +55,10 @@ const onSubmit = async() => {
   console.log(res);
   // 保存用户信息
   sessionStorage.setItem('userInfo',JSON.stringify(res.data))
-  // 跳转页面
-  router.push('/noteClass')
+  // 1s跳转页面
+  setTimeout(() =>{
+    router.push('/noteClass')
+  },1500)
 }
 
 const register = () => {

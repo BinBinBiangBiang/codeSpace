@@ -16,7 +16,7 @@ axios.interceptors.response.use(res => {
       return Promise.reject(res)
       // return res
     }else{
-      showSuccessToast('登录成功！');
+      showSuccessToast(res.data.msg);
       return res.data
     }
   }

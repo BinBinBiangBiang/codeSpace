@@ -3,7 +3,7 @@ import App from './App.vue'
 import 'amfe-flexible' // 自动设置根字体大小
 import router from './router/index.js'
 import './assets/style/reset.css'
-import { Form, Field, CellGroup } from 'vant';
+import { Form, Field, CellGroup,Icon } from 'vant';
 
 // 1. 引入你需要的组件
 import { Button } from 'vant';
@@ -13,7 +13,7 @@ import 'vant/lib/index.css';
 const app = createApp(App)
 
 app.use(router)
-
+app.use(Icon)
 app.use(Button);
 app.use(Form);
 app.use(Field);
