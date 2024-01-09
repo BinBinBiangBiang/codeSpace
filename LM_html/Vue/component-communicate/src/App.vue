@@ -6,7 +6,7 @@
     </div>
     <div class="body">
       <ul>
-        <li v-for="(index, item) in lists" :key="index">{{ index }}</li>
+        <li v-for="(item, index) in lists" :key="index">{{ item }}</li>
       </ul>
     </div>
   </div>
@@ -15,6 +15,7 @@
 <script>
 
 export default {
+  
   data() {
     return {
       lists: ['html'],

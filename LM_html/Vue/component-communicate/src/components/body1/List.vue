@@ -4,7 +4,7 @@
       <li v-for="(item,index) in lists" :key="index">{{item}}</li>
     </ul>
 
-    <button>修改props</button>
+    <button @click="changeProps">修改props</button>
   </div>
 </template>
 

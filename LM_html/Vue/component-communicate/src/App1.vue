@@ -16,7 +16,7 @@ export default {
   },
   data() {
     return {
-      lists:['html','css'],
+      lists:['html'],
       message: ''
     }
   },

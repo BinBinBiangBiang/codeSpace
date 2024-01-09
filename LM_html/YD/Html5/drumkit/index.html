@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML5商业化开发细节</title>
   <link rel="stylesheet" href="./common.css">
+  <script src="./index.js"></script>
 </head>
 
 <body>
@@ -123,6 +124,7 @@
     </div>
   </div>
 
+  <!-- 音频资源 -->
   <audio src="./sounds/clap.wav" data-key="65"></audio>
   <audio src="./sounds/hihat.wav" data-key="83"></audio>
   <audio src="./sounds/kick.wav" data-key="68"></audio>
@@ -151,41 +153,6 @@
   <audio src="./sounds/boom.wav" data-key="66"></audio>
   <audio src="./sounds/ride.wav" data-key="78"></audio>
   <audio src="./sounds/snare.wav" data-key="77"></audio>
-
-
-
-  <script type="text/javascript">
-    function playSound(e) {
-      const keyCode = e.keyCode;
-      // 标签的数据属性
-      const key = document.querySelector(`
-        .key[data-key="${keyCode}"]
-      `)
-      key && key.classList.add('playing');
-
-      // key && setTimeout(() => {
-      // key.classList.remove('playing');
-      // }, 100);
-
-      const keys = document.querySelectorAll('.key');
-      // console.log(keys)
-      keys.forEach((key) => {
-        key.addEventListener('transitionend', function (e) {
-          if (e.propertyName != 'transform') return;
-          this.classList.remove('playing');
-        })
-      })
-
-      const audio = document.querySelector(`
-        audio[data-key="${keyCode}"]
-      `)
-
-      audio.currentTime = 0;
-      audio.play();
-
-    }
-    window.addEventListener('keydown', playSound)
-  </script>
 </body>
 
 </html>

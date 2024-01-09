@@ -1,6 +1,6 @@
 <template>
   <div>
-
+    <h4>子父组件通讯</h4>
     <Head @add="handle"/>
     <div class="body">
       <ul>
@@ -18,7 +18,7 @@ export default {
   },
   data() {
     return {
-      lists: ['html','css'],
+      lists: ['html'],
     }
   },
   methods:{

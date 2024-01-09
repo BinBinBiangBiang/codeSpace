@@ -8,22 +8,21 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
-      message:''
-    }
+      message: ''
+    };
   },
-  methods:{
+  methods: {
     submit() {
-      if(!this.message) return 
-
-      // 将message传给父组件使用
-      this.$emit('add',this.message)
-      this.message = ''
+      // 发布自定义事件，传递数据
+      eventBus.$emit('submitMessage', this.message);
+      this.message = '';
     }
   }
-}
+};
 </script>
 
-<style lang="less" scoped></style>
+<style lang="css" scoped></style>
