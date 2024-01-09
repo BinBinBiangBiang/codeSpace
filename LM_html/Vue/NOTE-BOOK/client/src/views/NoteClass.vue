@@ -6,7 +6,7 @@
           <van-icon name="wap-nav" />
         </div>
         <div>
-          <van-icon name="edit" />
+          <van-icon name="edit" @click="goPublish"/>
           <van-icon name="like-o" />
           <van-icon name="search" />
         </div>
@@ -17,9 +17,9 @@
             v-for="(item,index) in noteClassList" 
             :key="index" 
             :style="{backgroundColor:item.bgColor}" 
-            @click="goNoteList(item.title)"
+            @click="goNoteList(item.name)"
         >
-          <span class="title">{{item.title}}</span>
+          <span class="title">{{item.name}}</span>
         </div>
       </section>
     </div>
@@ -47,49 +47,45 @@ const goNoteList = (title) =>{
 const noteClassList = [
   {
     bgColor: '#ee8282',
-    title: '美食'
+    name: '美食'
   },
   { 
     bgColor: '#6cb2eb',
-    title: '旅行' 
+    name: '旅行' 
   },
   { 
     bgColor: '#f7d794',
-    title: '健康' 
+    name: '健康' 
   },
   { 
     bgColor: '#82ccdd',
-    title: '时尚' 
+    name: '时尚' 
   },
   { 
     bgColor: '#a3d977',
-    title: '家居' 
+    name: '家居' 
   },
   { 
     bgColor: '#f8a5c2',
-    title: '美妆' 
+    name: '美妆' 
   },
   { 
     bgColor: '#f6b93b',
-    title: '手工' 
+    name: '手工' 
   },
   { 
     bgColor: '#b08df9',
-    title: '摄影' 
-  },
-  { 
-    bgColor: '#f19066',
-    title: '艺术' 
-  },
-  { 
-    bgColor: '#7ed6df',
-    title: '教育' 
-  },
+    name: '摄影' 
+  }
 ]
 
 const state = reactive({
   isMenuShow:false,
 })
+
+const goPublish = () =>{
+  router.push('/notePublish');
+}
 </script>
 
 <style lang="less" scoped>

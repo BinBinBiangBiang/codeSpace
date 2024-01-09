@@ -31,6 +31,7 @@
 import { reactive } from 'vue'
 import { useRouter } from 'vue-router'
 import axios from '../api'
+import { showFailToast,showSuccessToast } from 'vant';
  
 const router = useRouter()
 
@@ -46,16 +47,18 @@ const state = reactive({ // 将对象变成响应式
 const onSubmit = async() => {
   // 发请求，将state.username,state.password数据传给后端
 
-  console.log(state.username,state.password)
+  // console.log(state.username,state.password)
   const res = await axios.post('./login',{
     username: state.username,
     password: state.password
   })
 
-  console.log(res);
+  // console.log(res);
   // 保存用户信息
   sessionStorage.setItem('userInfo',JSON.stringify(res.data))
-  // 1s跳转页面
+  showSuccessToast('登录成功')
+
+  // 1s后跳转页面
   setTimeout(() =>{
     router.push('/noteClass')
   },1500)
@@ -121,8 +124,3 @@ const register = () => {
 }
 </style>
 
-<style>
-.van-cell__title.van-field__label{
-  width: 45px;
-}
-</style>

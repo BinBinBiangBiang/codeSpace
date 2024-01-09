@@ -57,6 +57,7 @@ const onSubmit = async () => {
 
   showSuccessToast('注册成功！')
 
+  // 1s后跳转到登录页面
   setTimeout(() => {
     router.push('/login')
   }, 1000)

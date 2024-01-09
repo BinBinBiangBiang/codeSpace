@@ -1,14 +1,14 @@
 <template>
   <div>
-    <!-- <Transition name="move">
+    <Transition name="move">
       <router-view></router-view>
-    </Transition> -->
-    <!-- 上面这种会报警告，下面这种不会 -->
-    <router-view v-slot="{ Component }">
+    </Transition>
+    <!-- 上面这种会报警告，下面这种不会,但是下面这种在平滑效果时会消失 -->
+    <!-- <router-view v-slot="{ Component }">
       <transition>
         <component :is="Component" />
       </transition>
-    </router-view>
+    </router-view> -->
   </div>
 </template>
 

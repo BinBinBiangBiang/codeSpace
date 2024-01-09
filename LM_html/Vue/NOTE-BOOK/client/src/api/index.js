@@ -16,7 +16,7 @@ axios.interceptors.response.use(res => {
       return Promise.reject(res)
       // return res
     }else{
-      showSuccessToast(res.data.msg);
+      // showSuccessToast(res.data.msg);
       return res.data
     }
   }
