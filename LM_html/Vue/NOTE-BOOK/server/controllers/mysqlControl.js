@@ -9,7 +9,7 @@ const pool = mysql.createPool({
     user: config.database.USERNAME,
     password: config.database.PASSWORD,
     database: config.database.DATABASE,
-    port: config.database.port,
+    port: config.database.PORT,
 });
 
 // 连接mysql
