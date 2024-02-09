@@ -17,7 +17,9 @@
 			</view>
 		</view>
 
-		<view class="menu-bd">hello</view>
+		<view class="menu-bd">
+			<view class="menu-bd-item" @click="exitLogin">退出登录</view>
+		</view>
 	</view>
 
 	<view class="menu-mask" @click="hideMenu" v-show="isShow"></view>
@@ -25,24 +27,39 @@
 
 <script setup>
 import { computed, ref } from 'vue';
-import { useStore } from 'vuex'
+import { useStore } from 'vuex';
+import baseUrl from '@/api/request.js';
 
-const store = useStore()
+const store = useStore();
 // console.log(store);
 const isShow = computed(() => {
-	return store.state.isShowMenu
-})
+	return store.state.isShowMenu;
+});
 
 const hideMenu = () => {
 	// isShow.value = false
-	store.commit('changeIsShowMenu', false)
-}
+	store.commit('changeIsShowMenu', false);
+};
+
+const exitLogin = () => {
+	uni.reLaunch({
+		url: '/pages/login/login'
+	});
+	store.commit('changeLoginState', false);
+	hideMenu();
+	uni.request({
+		url: baseUrl + '/logout',
+		success(res) {
+			console.log(res);
+		}
+	});
+};
 </script>
 
 <style lang="scss" scoped>
 .menu-left {
 	position: fixed;
-	top: 80rpx;
+	top: 0rpx;
 	z-index: 9999;
 	width: 620rpx;
 	height: 100%;
@@ -51,10 +68,10 @@ const hideMenu = () => {
 	background-color: #fff;
 	// box-shadow: 5px 0 20rpx #eee;
 	transition: all 0.5s ease-in-out;
-	&.show{
+	&.show {
 		left: 0;
 	}
-	&.hide{
+	&.hide {
 		left: -620rpx;
 	}
 	.menu-hd {
@@ -77,6 +94,18 @@ const hideMenu = () => {
 			.username {
 				margin-left: 20rpx;
 			}
+		}
+	}
+	.menu-bd {
+		display: flex;
+		justify-content: center;
+		.menu-bd-item {
+			width: 600rpx;
+			height: 50rpx;
+			border: 1px solid #48f87a;
+			margin-top: 10rpx;
+			text-align: center;
+			line-height: 50rpx;
 		}
 	}
 }
