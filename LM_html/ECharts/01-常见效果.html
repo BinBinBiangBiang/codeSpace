@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/echarts@latest/dist/echarts.min.js"></script>
+  <title>常见效果</title>
+</head>
+
+<body>
+  <div id="main" style="width: 600px;height:400px;"></div>
+  <script>
+    var chartInstance = echarts.init(document.getElementById('main'));
+
+    var option = {
+      title: {
+        text: '语文成绩'
+      },
+      xAxis: {
+        type: 'category',
+        data: ['小明', '管一', '小红', '小美', '小周', '小李', '小孙']
+      },
+      yAxis: {
+        type: 'value'
+      },
+      tooltip: {
+        trigger: 'axis', // 触发方式，当鼠标悬浮在坐标轴刻度或数据点上时显示Tooltip
+        // formatter: function (params) { // 自定义格式化函数
+        //   // params是一个包含多个数据项的对象数组，每个对象表示一个系列中的一个数据点
+        //   var value = params[0].value; // 获取第一个数据项的值
+        //   var name = params[0].name; // 获取对应的类别名称（x轴的category）
+
+        //   return `${name}: ${value}`; // 返回格式化的HTML字符串，这里简单地显示姓名和成绩
+        // },
+      },
+      series: [
+        {
+          data: [95, 130, 100, 80, 90, 110, 95],
+          name: '语文',
+          type: 'bar',
+          markPoint: {
+            data: [
+              {
+                type: 'max',
+                name: '最大值'
+              },
+              {
+                type: 'min',
+                name: '最小值'
+              }
+            ]
+          },
+          markLine: {
+            data: [
+              {
+                type: 'average',
+                name: '平均值'
+              },
+              // // 自定义坐标位置的标记线
+              // [
+              //   { coord: [10, 20] }, // 起始坐标
+              //   { coord: [50, 60] }, // 结束坐标
+              // ],
+            ],
+            label: { // 线上的标签样式
+              formatter: '{b}',
+            },
+          },
+          label: {
+            show: true,
+            rotate: 60
+          },
+        }
+      ]
+    };
+
+    chartInstance.setOption(option);
+  </script>
+</body>
+
+</html>
