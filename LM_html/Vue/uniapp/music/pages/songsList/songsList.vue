@@ -63,7 +63,7 @@
 				</view>
 			</view>
 		</view>
-		
+
 		<!-- 播放器 -->
 		<musicPlayer />
 	</view>
@@ -73,11 +73,11 @@
 import { apiGetPlayList, apiGetPlayListDetail } from '@/api/songs.js';
 import { onLoad } from '@dcloudio/uni-app';
 import { ref } from 'vue';
-import { useStore } from 'vuex'
+import { useStore } from 'vuex';
 
 const list = ref([]);
 const info = ref({});
-const store = useStore()
+const store = useStore();
 
 const goBack = () => {
 	uni.navigateBack();
@@ -91,7 +91,7 @@ onLoad((option) => {
 
 const getPlayList = async (id) => {
 	const res = await apiGetPlayList(id, 20, 0);
-	console.log(res.data.songs);
+	// console.log(res.data.songs);
 	list.value = res.data.songs;
 };
 const getPlayListDetail = async (id) => {
@@ -103,9 +103,9 @@ const getPlayListDetail = async (id) => {
 const showPlayer = (id) => {
 	// 展示播放器
 	// 传递id
-	store.commit('changeIsShowPlayer', true)
-	store.commit('changeCurrentPlayId', id)
-}
+	store.commit('changeIsShowPlayer', true);
+	store.commit('changeCurrentPlayId', id);
+};
 </script>
 
 <style lang="scss">
