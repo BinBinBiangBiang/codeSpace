@@ -8,7 +8,7 @@
 				</view>
 			</template>
 		</wyheader>
-		
+
 		<!-- menu -->
 		<menuLeft />
 
@@ -22,30 +22,29 @@
 				</swiper-item>
 			</swiper>
 		</view>
-		
+
 		<!-- balls -->
 		<view class="balls">
 			<view class="ball-item" v-for="item in state.balls" :key="item.id">
 				<view class="icon">
 					<image :src="item.iconUrl" mode="aspectFill"></image>
 				</view>
-				<text>{{item.name}}</text>
+				<text>{{ item.name }}</text>
 			</view>
 		</view>
-		
+
 		<!-- 推荐歌单 -->
-		<songList :list="state.recommendList" title="推荐歌单"/>
+		<songList :list="state.recommendList" title="推荐歌单" />
 		<!-- 推荐歌曲 -->
-		<recommendSong :list="state.recommendSongs"/>
+		<recommendSong :list="state.recommendSongs" />
 		<!-- xxx雷达歌单 -->
-		<songList :list="state.personalizedList" title="蜗牛的雷达歌单"/>
-		
+		<songList :list="state.personalizedList" title="蜗牛的雷达歌单" />
 	</view>
 </template>
 
 <script setup>
-import { apiGetBanner, apiGetBall, apiGetRecommendList, apiGetRecommendSongs, apiGetPersonalizedList } from '@/api/index.js'
-import { onLoad } from '@dcloudio/uni-app'
+import { apiGetBanner, apiGetBall, apiGetRecommendList, apiGetRecommendSongs, apiGetPersonalizedList } from '@/api/index.js';
+import { onLoad } from '@dcloudio/uni-app';
 import { reactive } from 'vue';
 
 const state = reactive({
@@ -54,51 +53,51 @@ const state = reactive({
 	recommendList: [],
 	recommendSongs: [],
 	personalizedList: []
-})
-
+});
 
 onLoad(() => {
-	getBanner()
-	getBall()
-	getRecommendList()
-	getRecommendSongs()
-	getPersonalizedList()
-})
+	getBanner();
+	getBall();
+	getRecommendList();
+	getRecommendSongs();
+	getPersonalizedList();
+});
 
 // 获取banner图
 const getBanner = () => {
-	apiGetBanner({type: 2}).then(res => {
+	apiGetBanner({ type: 2 }).then((res) => {
 		// console.log(res.data.banners);
-		state.banners = res.data.banners
-	})
-}
+		state.banners = res.data.banners;
+	});
+};
 // 获取入口列表
-const getBall = async() => {
-	const { data: { data: balls } } = await apiGetBall()
+const getBall = async () => {
+	const {
+		data: { data: balls }
+	} = await apiGetBall();
 	// console.log(balls);
-	state.balls = balls
-}
+	state.balls = balls;
+};
 // 推荐歌单
-const getRecommendList = async() => {
-	const { data: { recommend: recommend }} = await apiGetRecommendList()
+const getRecommendList = async () => {
+	const {
+		data: { recommend: recommend }
+	} = await apiGetRecommendList();
 	// console.log(recommend);
-	state.recommendList = recommend
-}
+	state.recommendList = recommend;
+};
 // 推荐歌曲
-const getRecommendSongs = async() => {
-	const res = await apiGetRecommendSongs()
+const getRecommendSongs = async () => {
+	const res = await apiGetRecommendSongs();
 	// console.log(res.data.data.dailySongs);
-	state.recommendSongs = res.data.data.dailySongs
-}
+	state.recommendSongs = res.data.data.dailySongs;
+};
 // 雷达歌单
-const getPersonalizedList = async() => {
-	const res = await apiGetPersonalizedList()
-	console.log(res.data.result);
-	state.personalizedList = res.data.result
-}
-
-
-
+const getPersonalizedList = async () => {
+	const res = await apiGetPersonalizedList();
+	// console.log(res.data.result);
+	state.personalizedList = res.data.result;
+};
 </script>
 
 <style lang="scss" scoped>
@@ -107,49 +106,48 @@ const getPersonalizedList = async() => {
 	.search {
 		width: 500rpx;
 		height: 60rpx;
-		:deep(.uni-searchbar){
+		:deep(.uni-searchbar) {
 			height: 100%;
 			padding: 0;
-			.uni-searchbar__box{
+			.uni-searchbar__box {
 				height: 100%;
 				padding: 0;
 			}
 		}
 	}
-	.banner{
-		.swiper-item{
+	.banner {
+		.swiper-item {
 			width: 100%;
 			height: 100%;
 			border-radius: 10px;
 			overflow: hidden;
-			image{
+			image {
 				width: 100%;
 				height: 100%;
 			}
 		}
 	}
-	.balls{
+	.balls {
 		display: flex;
 		overflow-x: scroll;
 		margin: 30rpx 0;
-		.ball-item{
+		.ball-item {
 			flex: 0 0 20%;
 			font-size: 20rpx;
 			text-align: center;
-			.icon{
+			.icon {
 				width: 70rpx;
 				height: 70rpx;
 				margin: 0 auto;
 				margin-bottom: 14rpx;
 				background-color: $uni-primary-color;
 				border-radius: 50%;
-				image{
+				image {
 					width: 100%;
 					height: 100%;
 				}
 			}
 		}
 	}
-	
 }
 </style>
