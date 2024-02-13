@@ -24,6 +24,9 @@
       yAxis: {
         type: 'value'
       },
+      legend: {
+        data: ['语文', '数学']
+      },
       toolbox: {
         feature: {
           saveAsImage: {},  // 导出图片
@@ -50,41 +53,23 @@
           data: [95, 130, 100, 80, 90, 110, 95],
           name: '语文',
           type: 'bar',
-          markPoint: {
-            data: [
-              {
-                type: 'max',
-                name: '最大值'
-              },
-              {
-                type: 'min',
-                name: '最小值'
-              }
-            ]
-          },
-          markLine: {
-            data: [
-              {
-                type: 'average',
-                name: '平均值'
-              },
-              // // 自定义坐标位置的标记线
-              // [
-              //   { coord: [10, 20] }, // 起始坐标
-              //   { coord: [50, 60] }, // 结束坐标
-              // ],
-            ],
-            label: { // 线上的标签样式
-              formatter: '{b}',
-            },
-          },
           label: {
             show: true,
             position: 'inside',
             rotate: 60
           },
         },
-        
+        {
+          data: [110, 120, 140, 60, 56, 89, 115],
+          name: '数学',
+          type: 'bar',
+          label: {
+            show: true,
+            position: 'inside',
+            rotate: 60
+          },
+        },
+
       ]
     };
 
