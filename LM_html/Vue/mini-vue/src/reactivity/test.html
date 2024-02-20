@@ -17,15 +17,23 @@
       age: 18
     })
 
-    effect(() => {
-      console.log(state.age, state.name);
-    }, { lazy: false })
+    effect(
+      () => {
+        console.log(state.age, state.name);
+      },
+      {
+        lazy: false,
+        // scheduler() {
+        //   console.log('测试调度任务');
+        // }
+      }
+    )
 
     // console.log(state.age, state.name);
 
-    // setInterval(() => {
-    //   state.age += 1;
-    // }, 1000)
+    setInterval(() => {
+      state.age += 1;
+    }, 1000)
   </script>
 </body>
 

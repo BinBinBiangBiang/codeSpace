@@ -1,21 +1,21 @@
-import { track,trigger } from './effect.js'
+import { track, trigger } from './effect.js'
 
 const get = createGettter()
 const set = createSetter()
 
-function createGettter(){
-  return function get(target,key,receiver){
+function createGettter() {
+  return function get(target, key, receiver) {
     // console.log('target对象被读取值了');
     const res = Reflect.get(target, key, receiver);  // target[key]
     // 这个属性究竟还有哪些地方用到？ 进行依赖收集
-    track(target,key)
+    track(target, key)
     return res;
   }
 }
 
-function createSetter(){
+function createSetter() {
   return function (target, key, value, receiver) {
-    console.log('target对象的' + key + '属性被修改为：' + value);
+    // console.log('target对象的' + key + '属性被修改为：' + value);
     // 比较新旧值，如果不同才进行更新，避免无限循环
     const oldValue = target[key];
     if (value !== oldValue) {

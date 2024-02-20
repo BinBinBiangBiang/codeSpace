@@ -1,24 +1,25 @@
 // 副作用收集
-const targetMap =new WeakMap();
+const targetMap = new WeakMap();
 let activeEffect = null;
 
-export function effect(fn,options={}){
-  const effeftFn = () =>{
-    try{
+export function effect(fn, options = {}) {
+  const effeftFn = () => {
+    try {
       activeEffect = effeftFn;
       return fn()
-    }finally{
+    } finally {
       activeEffect = null;
     }
   }
-  if(!options.lazy){
+  if (!options.lazy) {
     effeftFn();
   }
+  effeftFn.scheduler = options.scheduler
   return effeftFn
 }
 
 // 为某个属性添加 effect
-export function track(target,key){
+export function track(target, key) {
   // targetMap = {  // 存成这样
   //   target: {
   //     key:[effect1,effect2,effect3,...]
@@ -30,34 +31,38 @@ export function track(target,key){
 
   let depsMap = targetMap.get(target);
 
-  if(!depsMap){ // 初次读取到值 收集effect
+  if (!depsMap) { // 初次读取到值 收集effect
     depsMap = new Map();
-    targetMap.set(target,depsMap);
+    targetMap.set(target, depsMap);
   }
 
   let deps = depsMap.get(key);
-  if(!deps){ // 该属性还未添加任何effect
+  if (!deps) { // 该属性还未添加任何effect
     deps = new Set();
   }
-  if(!deps.has(activeEffect) && activeEffect){
+  if (!deps.has(activeEffect) && activeEffect) {
     // 存入一个effect函数
     deps.add(activeEffect)
   }
 
-  depsMap.set(key,deps)
+  depsMap.set(key, deps)
 }
 
 // 触发某个属性 effect
-export function trigger(target, key){
+export function trigger(target, key) {
   const depsMap = targetMap.get(target);
-  if(!depsMap){ // 该属性没有添加任何effect
+  if (!depsMap) { // 该属性没有添加任何effect
     return
   }
   const deps = depsMap.get(key);
-  if(!deps){ // 该属性没有添加任何依赖
+  if (!deps) { // 该属性没有添加任何依赖
     return
   }
-  deps.forEach(effect => {  // 将该属性上的所有的副作用函数全部触发
-    effect();
+  deps.forEach(effectFn => {  // 将该属性上的所有的副作用函数全部触发
+    if (effectFn.scheduler) {
+      effectFn.scheduler()
+    } else {
+      effectFn();
+    }
   })
 }
