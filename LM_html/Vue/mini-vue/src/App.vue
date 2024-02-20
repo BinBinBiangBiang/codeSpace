@@ -16,26 +16,26 @@ const state = reactive({
 })
 
 
-const num = computed(() => {
-  return state.count * 10
-})
-const state1 = reactive({
-  num: 1,
-})
+// const num = computed(() => {
+//   return state.count * 10
+// })
+// const state1 = reactive({
+//   num: 1,
+// })
 
-const add = () => {
-  state.count++
-}
+// const add = () => {
+//   state.count++
+// }
 
-effect(() => {   // 类似生命周期一开始就执行  第二个参数为lazy,当值为true时，不会立即执行
-  console.log('hello world');
-}, { lazy: false })
+// effect(() => {   // 类似生命周期一开始就执行  第二个参数为lazy,当值为true时，不会立即执行
+//   console.log('hello world');
+// }, { lazy: false })
 
-watch(() => state.count, () => {
-  (newVal, oldVal) => {
-    console.log(newVal, oldVal);
-  }
-})
+// watch(() => state.count, () => {
+//   (newVal, oldVal) => {
+//     console.log(newVal, oldVal);
+//   }
+// })
 
 </script>
 
