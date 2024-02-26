@@ -52,3 +52,24 @@
 //           return max(left,right)+1;
 //       }
 //   };
+
+// // 层次遍历计算最大深度
+// class Solution {
+//   public:
+//       int maxDepth(TreeNode* root) {
+//           int result = 0;
+//           queue<TreeNode*> que;
+//           if(root != NULL) que.push(root);
+//           while(!que.empty()){
+//               int size = que.size();
+//               result++;
+//               while(size--){
+//                   TreeNode* node = que.front();
+//                   que.pop();
+//                   if(node->left) que.push(node->left);
+//                   if(node->right) que.push(node->right);
+//               }
+//           }
+//           return result;
+//       }
+//   };
