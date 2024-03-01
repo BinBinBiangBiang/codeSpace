@@ -26,26 +26,77 @@ class MyPromise{
     executor(resolve, reject);
   }
 
-  then(){
-    //  
+  then(onFulfilled, onRejected){
+    // 把 onFulfilled 存起来，供resolve 调用
+    onFulfilled = typeof onFulfilled === 'function' ? onFulfilled : value => value
+    onRejected = typeof onRejected === 'function' ? onRejected : reason => reason
 
-    // return new MyPromise((resolve, reject) =>{
-    //   if(this.state === 'fulfilled'){
-    //     resolve(this.value)
-    //   }else if(this.state === 'rejected'){
-    //     reject(this.reason)
-    //   }else{
-    //     this.onFullfilledCallbacks.push(resolve)
-    //     this.onRejectedCallbacks.push(reject)
-    //   }
-    // })
+    const newPromise = new MyPromise((resolve, reject) =>{
+      if(this.state === 'fulfilled'){  // then 前面的promise对象状态是同步变更完成的
+        setTimeout(() => { // 官方是微任务，我们宏任务简化一下 // 模拟异步执行
+          try{
+            const result = onFulfilled(this.value)
+            resolve(result)  // 应该放result里面的resolve中的参数
+          }catch(err){
+            reject(err)
+          }
+        }, 0)
+      }else if(this.state === 'rejected'){   
+        setTimeout(() => {
+          try{
+            const result = onRejected(this.reason)
+            resolve(result)
+          }catch(err){
+            reject(err)
+          }
+        }, 0)
+      }else{
+        this.onFullfilledCallbacks.push((value)=>{
+          setTimeout(()=>{  // 保障将来onFulfilled在resolve中被调用时是一个异步函数
+            try{
+              const result = onFulfilled(value)
+              resolve(result)  // 应该放result里面的resolve中的参数
+            }catch(err){
+              reject(err)
+            }
+          })
+        })
+        this.onRejectedCallbacks.push((reason)=>{
+          setTimeout(()=>{  // 保障将来onRejected在reject中被调用时是一个异步函数
+            try{
+              const result = onRejected(reason)
+              resolve(result)
+            }catch(err){
+              reject(err)
+            }
+          })
+        })
+      }
+    })
+    return newPromise;
+  }
+
+  static race(promises){
+    return new MyPromise((resolve, reject) =>{
+      // 看promises里面的哪个对象的状态先变更
+      for(let promise of promises){
+        promise.then(()=>{
+          (value)=>{
+            resolve(value)
+          },
+          (reason)=>{
+            reject(reason)
+          }
+        })
+      }
+    })
   }
 }
 
 
 let p = new MyPromise((resolve, reject) =>{
-  // reject(2)
-  // resolve(1)
+  reject(2)
+  resolve(1)
 })
 
 p.then(() =>{

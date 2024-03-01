@@ -22,3 +22,9 @@
     - 2. 内部的resolve函数会修改state为fulfilled，并触发then中的回调，
          reject函数会修改state为rejected
 
+    - 3. then:
+         1. 默认返回一个promise对象，状态为fulfilled
+         2. 当then前面的promise状态为fulfilled时，then中的回调函数会执行，
+            当then前面的promise状态为rejected，then中的第二个回调函数会执行
+            当then前面的promise状态为pending时，then中的回调函数被缓存起来交给resolve或者reject执行
+
