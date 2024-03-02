@@ -91,20 +91,111 @@ class MyPromise{
       }
     })
   }
+
+
+  static all(promises){  // 有一个为reject也就是状态为rejected就直接执行reject  全真则真，一假则假
+    return new MyPromise((resolve, reject) =>{
+      let count = 0 , arr = []
+      for(let i = 0 ; i < promises.length ; i++){
+        promises[i].then(
+          (value)=>{
+            count++;
+            arr[i] = value
+            if(count === promises.length){
+              resolve(arr)
+            }
+          },
+          (reason)=>{
+            reject(reason)
+          }
+        )
+      }
+    })
+  }
+
+  static any(promises){  // 有一个为resolve也就是状态为fulfilled就直接执行resolve 全假则假 一真则真
+    return new MyPromise((resolve, reject) =>{
+      let count = 0 ,errors = []
+      for(let i = 0 ; i < promises.length ; i++){
+        promises[i].then(
+          (value)=>{
+            resolve(value)
+          },
+          (reason)=>{
+            count++;
+            errors[i] = reason
+            if(count === promises.length){
+              reject(new AggregateError())
+            }
+          }
+        )
+      }
+    })
+  }
 }
 
 
-let p = new MyPromise((resolve, reject) =>{
-  reject(2)
-  resolve(1)
-})
+// let p = new MyPromise((resolve, reject) =>{
+//   reject(2)
+//   resolve(1)
+// })
 
-p.then(() =>{
-  console.log('2');
-},
-() =>{
-  console.log('error');
+// p.then(() =>{
+//   console.log('2');
+// },
+// () =>{
+//   console.log('error');
+// }
+// )
+
+// console.log(p);
+
+function a(){
+  return new Promise((resolve, reject) =>{
+    setTimeout(()=>{
+      console.log('1a')
+      reject('2a')
+    },1000)
+  })
 }
+
+function b(){
+  return new Promise((resolve, reject) =>{
+    setTimeout(()=>{
+      console.log('1b')
+      reject('2b')
+    },500)
+  })
+}
+
+function c(){
+  console.log('1c');
+}
+
+
+// MyPromise.all([a(),b()]).then(
+//   (res) =>{
+//     console.log(res);
+//     c()
+//   },
+//   (error) =>{
+//     console.log('error'+error);
+//   }
+// )
+
+MyPromise.any([a(),b()]).then(
+  (res) =>{
+    console.log(res);
+    c()
+  },
+  (error) =>{
+    console.log('error'+error);
+  }
 )
 
-console.log(p);
+
+
+
+
+
+
