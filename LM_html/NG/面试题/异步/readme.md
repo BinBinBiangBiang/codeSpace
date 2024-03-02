@@ -28,3 +28,10 @@
             当then前面的promise状态为rejected，then中的第二个回调函数会执行
             当then前面的promise状态为pending时，then中的回调函数被缓存起来交给resolve或者reject执行
 
+
+3. Generator
+  1. 可以分段执行，可以暂停
+  2. 可以检测每一个阶段的返回值
+  3. 可以知道是否执行完毕
+  4. 可以借助 Thunk 和 co 模块 处理异步，但是写法复杂，所以generator 函数的意思其实是为了打造async/await
+
