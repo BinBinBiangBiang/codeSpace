@@ -29,6 +29,9 @@
       let viewHeight = window.innerHeight
       // console.log(viewHeight);
       
+    // document.querySelectorAll('img[data-original]')
+    // 返回的是一个 NodeList 对象，它是一个类数组对象，包含所有匹配给定CSS选择器的元素。但是，NodeList 不具备Array的所有方法
+    // 通过 Array.from(imgs)，我们可以将这个 NodeList 转换为一个真正的 Array 实例
       function lazyLoad() {
         let imgs = document.querySelectorAll('img[data-original]')
         Array.from(imgs).forEach(el => {
