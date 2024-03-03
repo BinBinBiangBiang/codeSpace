@@ -14,10 +14,10 @@
     //----------------------------------------------------------------
     app.style.position = 'relative';
     // 老版本的流量器下面四行代码一行回流一次，但如今的浏览器会将下面代码优化，只会回流一次
-    // app.style.width =  '100px'
-    // app.style.height = '200px'
-    // app.style.left= '10px'
-    // app.style.right = '10px'
+    app.style.width =  '100px'
+    app.style.height = '200px'
+    app.style.left= '10px'
+    app.style.right = '10px'
 
     //----------------------------------------------------------------
     // 下述代码会发生四次回流，浏览器读取到console.log()，里面计算了容器的属性，相当于获取到了容器的宽高等等，和offsetWidth属性一样
