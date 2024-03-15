@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>两栏布局</title>
+  <!-- <style type="text/css">
+    .container {
+      display: flex;
+    }
+
+    .left {
+      background: red;
+      flex: 1;
+      height: 100vh;
+    }
+
+    .right {
+      background: yellow;
+      width: 200px;
+      height: 100vh;
+    }
+  </style> -->
+
+
+  <!-- <style>
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+    }
+
+    .left {
+      background: red;
+      height: 100vh;
+    }
+
+    .right {
+      background: yellow;
+      width: 200px;
+      height: 100h;
+    }
+  </style> -->
+
+  <!-- <style>
+    .left {
+      float: left;
+      left: 0;
+      width: calc(100% - 200px);
+      background: red;
+      height: 100vh;
+    }
+
+    .right {
+      float: right;
+      width: 200px;
+      right: 0;
+      background: yellow;
+      height: 100vh;
+    }
+  </style> -->
+
+  <style>
+    .container {
+      position: relative;
+    }
+
+    .left {
+      position: absolute;
+      left: 0;
+      background: red;
+      width: calc(100% - 200px);
+      height: 100vh;
+    }
+
+    .right {
+      position: absolute;
+      right: 0;
+      width: 200px;
+      background: yellow;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="left">left</div>
+    <div class="right">right</div>
+  </div>
+</body>
+
+</html>
