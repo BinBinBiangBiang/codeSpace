@@ -15,7 +15,8 @@ function myNew(constructor,...args){
 
   const result = constructor.apply(obj,args);
 
-  return (result != null && (typeof result === 'object' || typeof result === 'function') ? result : obj)
+  // return (result != null && (typeof result === 'object' || typeof result === 'function') ? result : obj)  // 第一种
+  return result instanceof Object ? result : obj;   // 第二种
 }
 
 function Person(name, age){
