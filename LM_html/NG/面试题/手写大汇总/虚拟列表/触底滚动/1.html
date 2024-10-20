@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>触底分页示例</title>
+</head>
+
+<body>
+    <div id="scrollContainer" style="height: 300px; overflow-y: scroll;">
+        <div id="productList"></div>
+    </div>
+
+    <script>
+        // 商品列表容器
+        const productList = document.getElementById('productList');
+        // 滚动容器
+        const scrollContainer = document.getElementById('scrollContainer');
+        let products = []; // 存储所有商品数据
+        let currentIndex = 0; // 当前显示的商品索引
+        const itemsPerPage = 10; // 每次加载多少条数据
+        const threshold = 50; // 阈值，可以根据实际情况调整
+
+        // 获取所有商品数据的模拟函数
+        function fetchAllProducts() {
+            fetch('/api/products')
+                .then(response => response.json())
+                .then(data => {
+                    products = data;
+                    renderProducts(currentIndex, itemsPerPage);
+                })
+                .catch(error => console.error('Failed to fetch products:', error));
+        }
+
+        // 渲染商品数据
+        function renderProducts(startIndex, count) {
+            for (let i = startIndex; i < Math.min(startIndex + count, products.length); i++) {
+                const productElement = document.createElement('div');
+                productElement.textContent = products[i].name; // 假设产品名称是最简单的属性
+                productList.appendChild(productElement);
+            }
+        }
+
+        // 滚动事件处理函数
+        function handleScroll() {
+            const scrollTop = scrollContainer.scrollTop;
+            const scrollHeight = scrollContainer.scrollHeight;
+            const clientHeight = scrollContainer.clientHeight;
+
+            // 判断是否接近页面底部
+            if (scrollTop + clientHeight >= scrollHeight - threshold) {
+                currentIndex += itemsPerPage;
+                renderProducts(currentIndex, itemsPerPage);
+            }
+        }
+
+        // 为滚动容器添加滚动事件监听器
+        scrollContainer.addEventListener('scroll', handleScroll);
+
+        // 初始化加载所有数据
+        fetchAllProducts();
+    </script>
+</body>
+
+</html>
