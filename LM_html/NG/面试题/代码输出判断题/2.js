@@ -1,0 +1,13 @@
+// 考察对
+
+function fn(n, o) {
+  console.log(o)
+
+  return {
+    fn(m) {
+      return fn(m, n)
+    }
+  }
+}
+
+const b = fn(0).fn(1).fn(2).fn(3)
