@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+    const virtualDOM = {
+      tag: 'DIV',
+      attrs: {
+        id: 'app'
+      },
+      children: [
+        {
+          tag: 'SPAN',
+          children: [
+            { tag: 'A', children: [] }
+          ]
+        },
+        {
+          tag: 'SPAN',
+          children: [
+            { tag: 'A', attrs: { class: 'a1' }, children: [] },
+            { tag: 'A', children: [] }
+          ]
+        }
+      ]
+    };
+
+    function render(virtualNode, container) {
+      const node = document.createElement(virtualNode.tag)
+
+      if (virtualNode.attrs) {
+        Object.keys(virtualNode.attrs).map((key, val) => {
+          node.setAttribute(key, val)
+        })
+      }
+
+      if (virtualNode.children) {
+        virtualNode.children.forEach(item => {
+          render(item, node)
+        })
+      }
+
+      container.appendChild(node)
+    }
+
+    let container = document.createElement('div')
+    document.body.appendChild(container);
+
+    const reaDom = render(virtualDOM, container)
+    console.log(reaDom)
+  </script>
+</body>
+
+</html>

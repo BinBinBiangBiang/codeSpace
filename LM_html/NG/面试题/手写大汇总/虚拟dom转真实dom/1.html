@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual DOM to Real DOM</title>
+</head>
+<body>
+  <script>
+    // 虚拟 DOM 数据结构
+    const virtualDOM = {
+      tag: 'DIV',
+      attrs: {
+        id: 'app'
+      },
+      children: [
+        {
+          tag: 'SPAN',
+          children: [
+            { tag: 'A', children: [] }
+          ]
+        },
+        {
+          tag: 'SPAN',
+          children: [
+            { tag: 'A', attrs: { class: 'a1' }, children: [] },
+            { tag: 'A', children: [] }
+          ]
+        }
+      ]
+    };
+
+    // 递归渲染函数
+    function render(virtualNode, container) {
+      // 创建元素
+      const domNode = document.createElement(virtualNode.tag);
+
+      // 设置属性
+      if (virtualNode.attrs) {
+        for (let attr in virtualNode.attrs) {
+          domNode.setAttribute(attr, virtualNode.attrs[attr]);
+        }
+      }
+
+      // 渲染子节点
+      if (virtualNode.children) {
+        virtualNode.children.forEach(child => {
+          render(child, domNode);
+        });
+      }
+
+      // 将创建的元素添加到容器中
+      container.appendChild(domNode);
+    }
+
+    
+
+    // 创建一个容器元素
+    const container = document.createElement('div');
+    document.body.appendChild(container);
+
+    // 渲染虚拟 DOM
+    render(virtualDOM, container);
+  </script>
+</body>
+</html>
