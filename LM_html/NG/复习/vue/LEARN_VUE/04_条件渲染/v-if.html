@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <template id='my-app'>
+    <h2 v-if="count === 1">今天你写代码了吗？</h2>
+    <h2 v-else-if="count === 2">今天你看掘金文章了吗？</h2>
+    <h2 v-else>都看了</h2>
+
+    <!-- 相比于上面的v-if等等 v-show存在一个弊端 v-show是直接修改style属性 将display改为none  而上面的是直接删除动物结构或者添加动物结构
+    ，所以它消失后不会允许用户右键检查直接修改display属性，而v-show可以 -->
+    <h2 v-show="isShow">hello world</h2>
+    <button @click="change">切换</button>
+  </template>
+
+
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script>
+    const App ={
+      template:'#my-app',
+      data:function(){
+        return {
+          isShow:true,
+          count:0
+        }
+      },
+      methods:{
+        change(){
+          this.count++;
+          if(this.count == 3){
+            this.count = 0;
+          }
+          this.count %=3;
+          this.isShow = !this.isShow
+        }
+      }
+    }
+
+    Vue.createApp(App).mount('#app')
+  </script>
+</body>
+</html>

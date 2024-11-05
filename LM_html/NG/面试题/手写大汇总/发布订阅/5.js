@@ -4,7 +4,7 @@ class Sub {
   }
 
   subscribe(type, callback) {
-    if (this.subscribers[type]) {
+    if (!this.subscribers[type]) {
       this.subscribers[type] = []
     }
     this.subscribers[type].push(callback)

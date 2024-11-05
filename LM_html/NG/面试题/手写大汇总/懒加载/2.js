@@ -4,7 +4,7 @@ function lazyLoad() {
   let imgs = document.querySelectorAll('img[data-original]')
   Array.from(imgs).forEach(el => {
     let rect = el.getBoundingClientRect()
-    if (el.top < viewHeight) {
+    if (rect.top < viewHeight) {
       let img = new Image()
       img.src = el.dataset.original
       img.onload = function () {

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+  <div id="app">
+    <input type="file" @change="handChange">
+    <button @click="handleUpload">上传</button>
+  </div>
+
+  <script>
+    const { createApp, ref } = Vue
+
+    createApp({
+      setup() {
+        const file = ref(null)
+
+        const handChange = (e) => {
+          file.value = e.target.files[0]
+          if (!file.value) return
+          console.log(file.value)
+        }
+
+        const createChunk = (file, size = 3 * 1024 * 1024) => {
+          const chunkList = []
+          let cur = 0
+          while (cur < file.size) {
+            chunkList.push({ file: file.slice(cur, cur + size) })   // Blob是一种数据类型  该slice方法是Blob上的slice方法 不是数组身上的
+            cur += size
+          }
+          return chunkList
+        }
+
+        const handleUpload = () => {
+          if (!file.value) return
+          const chunkList = createChunk(file.value)
+          console.log(chunkList)
+          //发请求
+
+        }
+
+        // 封装一个请求
+        const requestUpload = ({url, method = 'post',data,headers={},onUploadProgress = (e) => e}) =>{
+          
+        }
+
+        return {
+          handChange,
+          handleUpload,
+          createChunk
+        }
+      }
+    }).mount('#app')
+  </script>
+</body>
+
+</html>

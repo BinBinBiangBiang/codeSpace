@@ -8,7 +8,7 @@ function curry (fn, args) {
     const newArgs = [...args, ...arguments]
     // 如果剩余参数的个数小于 fn 的参数个数，则继续递归
     if (newArgs.length < len) {
-      return curry.call(this, fn, newArgs)
+      return curry.call(this, fn, ...newArgs)
     } else {
       // 否则执行 fn
       return fn.apply(this, newArgs)

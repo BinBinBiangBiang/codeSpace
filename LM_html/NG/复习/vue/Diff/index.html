@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div id="app">
+    <ul>
+      <li class="item" v-for="item in list">{{item}}</li>
+    </ul>
+  </div>
+
+  <script>
+    const { createApp, ref } = Vue
+
+    createApp({
+      setup() {
+        const list = ref(['html', 'css', 'js'])
+
+        return {
+          list
+        }
+      }
+    }).mount('#app')
+  </script>
+
+  <script>
+    // compiler 编译器
+    let oldDOM = {  // 老虚拟DOM
+      tagName: 'ul',
+      props: {
+        class: 'list'
+      },
+      children: [
+        {
+          tagName: 'li',
+          props: {
+            class: 'item'
+          },
+          children: ['html']
+        },
+        {
+          tagName: 'li',
+          props: {
+            class: 'item'
+          },
+          children: ['css']
+        },
+        {
+          tagName: 'li',
+          props: {
+            class: 'item'
+          },
+          children: ['js']
+        }
+      ]
+    }
+
+    // 修改js 为 vue时
+    let newDOM = {  // 新虚拟DOM
+      tagName: 'ul',
+      props: {
+        class: 'list'
+      },
+      children: [
+        {
+          tagName: 'li',
+          props: {
+            class: 'item'
+          },
+          children: ['html']
+        },
+        {
+          tagName: 'li',
+          props: {
+            class: 'item'
+          },
+          children: ['css']
+        },
+        {
+          tagName: 'li',
+          props: {
+            class: 'item'
+          },
+          children: ['vue']
+        }
+      ]
+    }
+  </script>
+</body>
+
+</html>
